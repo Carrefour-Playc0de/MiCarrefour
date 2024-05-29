@@ -12,6 +12,11 @@ const test = baseTest.extend<{
         const loginPage = new LoginPage(page, context, environment)
         await use(loginPage)
     },
+
+    // mainPageAndAcceptCookies: async ({ page, context }, use) => {
+    //     await use(new MainPageAndAcceptCookies(page, context, environment))
+    // },
+
     // profilePage: async ({ page, context }, use) => {
     //     const profilePage = new ProfilePage(page, context, environment)
     //     await use(profilePage)

@@ -1,26 +1,44 @@
 import { test as baseTest } from '@playwright/test'
 import { LoginPage } from '../pageObjectModel/Login/LoginPage'
-// import { ProfilePage } from '../pageObjectModel/Login/ProfilePage'
+import { MiPerfilEditarDatosPersonales } from '../pageObjectModel/MiPerfil/MiPerfilEditarDatosPersonales'
+import { MiPerfil } from '../pageObjectModel/MiPerfil/MiPerfil'
+import {
+    MiPerfilEditarMisDireccionesRadioButtonSi
+} from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesRadioButtonSi'
+import { CerrarSesion } from '../pageObjectModel/Login/CerrarSesion'
+
 
 const environment = process.env.TEST || 'qa'
 
 const test = baseTest.extend<{
     loginPage: LoginPage
-    // profilePage: ProfilePage
+    cerrarSesion: CerrarSesion
+    miPerfil: MiPerfil
+    miPerfilEditarDatosPersonales: MiPerfilEditarDatosPersonales
+    miPerfilEditarMiDireccionRadioButtonSi: MiPerfilEditarMisDireccionesRadioButtonSi
+
 }>({
     loginPage: async ({ page, context }, use) => {
-        const loginPage = new LoginPage(page, context, environment)
-        await use(loginPage)
+        await use(new LoginPage(page, context, environment))
+    },
+    cerrarSesion: async ({ page, context }, use) => {
+        await use(new CerrarSesion(page, context, environment))
     },
 
-    // mainPageAndAcceptCookies: async ({ page, context }, use) => {
-    //     await use(new MainPageAndAcceptCookies(page, context, environment))
-    // },
 
-    // profilePage: async ({ page, context }, use) => {
-    //     const profilePage = new ProfilePage(page, context, environment)
-    //     await use(profilePage)
-    // },
+    // MI PERFIL
+    miPerfil: async ({ page, context }, use) => {
+        await use(new MiPerfil(page, context, environment))
+    },
+
+    miPerfilEditarDatosPersonales: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarDatosPersonales(page, context, environment))
+    },
+    miPerfilEditarMiDireccionRadioButtonSi: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesRadioButtonSi(page, context, environment))
+    },
+
+
 })
 
 export default test

@@ -32,43 +32,46 @@ test('@Smoke @Regression (FC-TC-5) Verificar que se pueda cambiar solo numero de
     })
 })
 
-test('@zxcv @Smoke @Regression (FC-TC-5) Verificar que se pueda cambiar solo numero de celular desde Editar Datos personales desde Mi Perfil', async ({ miPerfilEditarMiDireccionRadioButtonSi }) => {
+test('@zxcv @Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (SI) los datos se guardan correctamente', async ({ miPerfilEditarMisDireccionesRadioButtonSi }) => {
 
-    await test.step('Click en el boton Mis Direcciones', async () => {
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await miPerfilEditarMisDireccionesRadioButtonSi.clickEditarMisDirecciones()
     })
-    await test.step('Ingresar numero de celular', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickCardEditarDomicilio()
+    await test.step('lick en el boton EDITAR', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickCardEditarDomicilioPrincipal()
     })
-    await test.step('Click en el boton Guardar', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickRadioButtonSi()
+    await test.step('Click en el radio button Si de la ventana Vivis en un Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickRadioButtonSi()
     })
-    await test.step('Click en el boton Datos Personales', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickSelectProvincia()
+    await test.step('Click en el select Provincia', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectProvincia()
     })
-    await test.step('Ingresar numero de celular', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickBsAs()
+    await test.step('Seleccionar Provincia', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionProvincia()
     })
-    await test.step('Click en el boton Guardar', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickSelectPartido()
+    await test.step('Click en el select Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectPartido()
     })
-    await test.step('Click en el boton Datos Personales', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickGuaymallen()
+    await test.step('Seleccionar Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionPartido()
     })
-    await test.step('Ingresar numero de celular', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.fillNombreBarrio()
+    await test.step('Ingresar datos en el input Nombre del Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillNombreBarrioCerrado()
     })
-    await test.step('Click en el boton Guardar', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.fillLote()
+    await test.step('Ingresar datos en el input Lote o Unidad Funcional', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillLoteUnidadFuncional()
     })
-    await test.step('Click en el boton Datos Personales', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickSelectTipoDomicilio()
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectTipoDomicilio()
     })
-    await test.step('Ingresar numero de celular', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.clickDomicilioPrincipal()
+    await test.step('Seleccionar Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionarTipoDomicilio()
     })
-    await test.step('Click en el boton Guardar', async () => {
-        await miPerfilEditarMiDireccionRadioButtonSi.fillComentario()
+    await test.step('Ingresar datos en el input Comentario', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillComentario()
+    })
+    await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickGuardarCambios()
     })
 })
 

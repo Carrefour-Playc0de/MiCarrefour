@@ -2,21 +2,20 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test'
 import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
-export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
-
+export class MiPerfilEditarMisDireccionesRadioButtonNo extends BasePage {
     readonly EDITAR: Locator
-    readonly MIS_DIRECCIONES_DOMICILIO: Locator
-    readonly RADIOBUTON_SI: Locator
-    readonly SELECT_PROVINCIA: Locator
-    readonly BSAS: Locator
-    readonly SELECT_PARTIDO: Locator
-    readonly GUAYMALLEN: Locator
-    readonly NOMBRE_BARRIO: Locator
-    readonly LOTE: Locator
-    readonly SELECT_TIPO_DOMICILIO: Locator
-    readonly DOMICILIO_PRINCIPAL: Locator
-    readonly COMENTARIO: Locator
-    readonly GUARDAR_CAMBIOS: Locator
+    readonly DOMICILIO: Locator
+    readonly RADIOBUTON_NO: Locator
+    // readonly SELECT_PROVINCIA: Locator
+    // readonly BSAS: Locator
+    // readonly SELECT_PARTIDO: Locator
+    // readonly GUAYMALLEN: Locator
+    // readonly NOMBRE_BARRIO: Locator
+    // readonly LOTE: Locator
+    // readonly SELECT_TIPO_DOMICILIO: Locator
+    // readonly DOMICILIO_PRINCIPAL: Locator
+    // readonly COMENTARIO: Locator
+    // readonly GUARDAR_CAMBIOS: Locator
 
     private env: any
 
@@ -25,8 +24,8 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.EDITAR = this.page.locator('//a[@href="https://www.micarrefour.com.ar/mi-perfil/mis-direcciones"]')
-        this.MIS_DIRECCIONES_DOMICILIO = this.page.locator("//a[normalize-space()='EDITAR']")
-        this.RADIOBUTON_SI = this.page.locator("//input[@type='radio' and @name='barrioCerrado' and @value='1']")
+        this.DOMICILIO = this.page.locator("//a[normalize-space()='EDITAR']")
+        this.RADIOBUTON_NO = this.page.locator("//input[@type='radio' and @name='barrioCerrado' and @value='0']")
         this.SELECT_PROVINCIA = this.page.locator("(//input[@type='text'])[1]")
         this.BSAS = this.page.locator('//*[@id="select-options-e1d9abfc-832d-5dd6-49b7-baecc0d8e5b61"]')
         this.SELECT_PARTIDO = this.page.locator("(//input[@class='select-dropdown dropdown-trigger valid'])[1]")
@@ -46,13 +45,13 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForTimeout(3000)
     }
     async clickCardEditarDomicilioPrincipal(): Promise<void> {
-        await this.click(this.MIS_DIRECCIONES_DOMICILIO)
+        await this.click(this.DOMICILIO)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
         await this.page.waitForTimeout(3000)
     }
-    async clickRadioButtonSi(): Promise<void> {
-        await this.click(this.RADIOBUTON_SI)
+    async clickRadioButtonNo(): Promise<void> {
+        await this.click(this.RADIOBUTON_NO)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
         await this.page.waitForTimeout(3000)
@@ -81,6 +80,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
         await this.page.waitForTimeout(3000)
     }
+
     async fillNombreBarrioCerrado(): Promise<void> {
         await this.fill(this.NOMBRE_BARRIO, 'Alto Las Tortugas')
         await this.page.waitForLoadState("domcontentloaded")
@@ -111,6 +111,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
         await this.page.waitForTimeout(3000)
     }
+
     async clickGuardarCambios(): Promise<void> {
         await this.click(this.GUARDAR_CAMBIOS)
         await this.page.waitForLoadState("domcontentloaded")
@@ -118,10 +119,10 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForTimeout(3000)
     }
 
-    async navigateToMiPerfilEditarMisDireccionesRadioButtonSi(): Promise<void> {
+    async navigateToMiPerfilEditarMisDireccionesRadioButtonNo(): Promise<void> {
         await this.clickEditarMisDirecciones()
         await this.clickCardEditarDomicilioPrincipal()
-        await this.clickRadioButtonSi()
+        await this.clickRadioButtonNo()
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickSelectPartido()

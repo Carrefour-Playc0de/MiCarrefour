@@ -15,7 +15,7 @@ const test = baseTest.extend<{
     cerrarSesion: CerrarSesion
     miPerfil: MiPerfil
     miPerfilEditarDatosPersonales: MiPerfilEditarDatosPersonales
-    miPerfilEditarMiDireccionRadioButtonSi: MiPerfilEditarMisDireccionesRadioButtonSi
+    miPerfilEditarMisDireccionesRadioButtonSi: MiPerfilEditarMisDireccionesRadioButtonSi
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -34,7 +34,7 @@ const test = baseTest.extend<{
     miPerfilEditarDatosPersonales: async ({ page, context }, use) => {
         await use(new MiPerfilEditarDatosPersonales(page, context, environment))
     },
-    miPerfilEditarMiDireccionRadioButtonSi: async ({ page, context }, use) => {
+    miPerfilEditarMisDireccionesRadioButtonSi: async ({ page, context }, use) => {
         await use(new MiPerfilEditarMisDireccionesRadioButtonSi(page, context, environment))
     },
 

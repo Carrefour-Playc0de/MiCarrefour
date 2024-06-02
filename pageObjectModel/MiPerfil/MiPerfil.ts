@@ -3,7 +3,7 @@ import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
 export class MiPerfil extends BasePage {
-    readonly MI_PERFIL
+    readonly MI_PERFIL: Locator
 
     private env: any
 
@@ -12,7 +12,6 @@ export class MiPerfil extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.MI_PERFIL = this.page.locator('//a[normalize-space()="Mi Perfil"]')
-
     }
 
     async clickMiPerfil(): Promise<void> {

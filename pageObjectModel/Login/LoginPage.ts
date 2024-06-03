@@ -41,7 +41,7 @@ export class LoginPage extends BasePage {
         await this.click(this.INGRESAR_CUENTA)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(3000)
+        // await this.page.waitForTimeout(3000)
     }
 
     async navigateToUrlAndLogin(): Promise<void> {

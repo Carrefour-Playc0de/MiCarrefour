@@ -49,30 +49,30 @@ test('@zxcv @Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal 
     await test.step('Seleccionar Provincia', async () => {
         await miPerfilEditarMisDireccionesRadioButtonSi.seleccionProvincia()
     })
-    // await test.step('Click en el select Partido', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectPartido()
-    // })
-    // await test.step('Seleccionar Partido', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.seleccionPartido()
-    // })
-    // await test.step('Ingresar datos en el input Nombre del Barrio Cerrado', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.fillNombreBarrioCerrado()
-    // })
-    // await test.step('Ingresar datos en el input Lote o Unidad Funcional', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.fillLoteUnidadFuncional()
-    // })
-    // await test.step('Click en el select Tipo de domicilio', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectTipoDomicilio()
-    // })
-    // await test.step('Seleccionar Tipo de domicilio', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.seleccionarTipoDomicilio()
-    // })
-    // await test.step('Ingresar datos en el input Comentario', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.fillComentario()
-    // })
-    // await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonSi.clickGuardarCambios()
-    // })
+    await test.step('Click en el select Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectPartido()
+    })
+    await test.step('Seleccionar Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionPartido()
+    })
+    await test.step('Ingresar datos en el input Nombre del Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillNombreBarrioCerrado()
+    })
+    await test.step('Ingresar datos en el input Lote o Unidad Funcional', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillLoteUnidadFuncional()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectTipoDomicilio()
+    })
+    await test.step('Seleccionar Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionarTipoDomicilio()
+    })
+    await test.step('Ingresar datos en el input Comentario', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.fillComentario()
+    })
+    await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickGuardarCambios()
+    })
 })
 
 

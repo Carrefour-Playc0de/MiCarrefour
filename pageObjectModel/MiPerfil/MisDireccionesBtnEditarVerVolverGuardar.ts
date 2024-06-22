@@ -1,0 +1,59 @@
+import { Page, BrowserContext, Locator, expect } from '@playwright/test'
+import { BasePage } from '../commonActions'
+import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
+
+export class MisDireccionesBtnEditarVerVolverGuardar extends BasePage {
+
+    readonly EDITAR_MIS_DIRECCIONES: Locator
+    readonly EDITAR_DOMICILIO_PRINCIPAL: Locator
+    readonly VER: Locator
+    readonly GUARDAR_CAMBIOS: Locator
+    readonly VOLVER: Locator
+
+    private env: any
+
+    constructor(page: Page, context: BrowserContext, environment: string) {
+        super(page, context)
+        this.env = loadEnvironmentConfig(environment)
+
+        this.EDITAR_MIS_DIRECCIONES = this.page.locator('//a[@href="https://www.micarrefour.com.ar/mi-perfil/mis-direcciones"]')
+        this.EDITAR_DOMICILIO_PRINCIPAL = this.page.locator("//a[normalize-space()='EDITAR']")
+        this.VER = this.page.locator('//a[normalize-space()="VER"]')
+        this.GUARDAR_CAMBIOS = this.page.locator('//button[normalize-space()="Guardar cambios"]')
+        this.VOLVER = this.page.locator('//a[normalize-space()="Volver"]')
+    }
+
+    async clickEditarMisDirecciones(): Promise<void> {
+        await this.click(this.EDITAR_MIS_DIRECCIONES)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+    async clickCardEditarDomicilioPrincipal(): Promise<void> {
+        await this.click(this.EDITAR_DOMICILIO_PRINCIPAL)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+    async clickCardVerDomicilioPrincipal(): Promise<void> {
+        await this.click(this.VER)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+    async clickGuardarCambios(): Promise<void> {
+        await this.click(this.GUARDAR_CAMBIOS)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+    async clickVolver(): Promise<void> {
+        await this.click(this.VOLVER)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+
+    async navigateToMiPerfilEditarMisDireccionesRadioButtonNo(): Promise<void> {
+        await this.clickEditarMisDirecciones()
+        await this.clickCardEditarDomicilioPrincipal()
+        await this.clickCardVerDomicilioPrincipal()
+        await this.clickGuardarCambios()
+        await this.clickVolver()
+    }
+}

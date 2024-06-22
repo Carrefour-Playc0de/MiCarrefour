@@ -2,6 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
 
+  // Tiempo que se ejecuta el test, luego termina
+  timeout: 120 * 1000,
   // Test location
   testDir: './tests',
 
@@ -20,7 +22,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 1,  // Cantidad de casos que se corren a la vez
 
   // Maximum time expect() should wait to met a condition
-  expect: { timeout: 20 * 1000 },   // Cantidad de tiempo que espera una validación antes de darla como fallada
+  expect: { timeout: 10 * 1000 },   // Cantidad de tiempo que espera una validación antes de darla como fallada
 
   globalTeardown: "./global-teardown.ts",
 

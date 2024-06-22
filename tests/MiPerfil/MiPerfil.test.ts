@@ -32,13 +32,88 @@ test('@Smoke @Regression (FC-TC-5) Verificar que se pueda cambiar solo numero de
     })
 })
 
-test('@zxcv @Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (SI) los datos se guardan correctamente', async ({ miPerfilEditarMisDireccionesRadioButtonSi }) => {
+test('@Smoke @Regression (FC-TC-12) Verificar que los botones EDITAR y VOLVER funcionan correctamente de la card Domicilio Principal', async ({ misDireccionesBtnEditarVerVolverGuardar }) => {
 
     await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.clickEditarMisDirecciones()
+        await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
     })
-    await test.step('lick en el boton EDITAR', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.clickCardEditarDomicilioPrincipal()
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
+    })
+    await test.step('Click en el boton VOLVER', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickVolver()
+    })
+})
+
+test('@Smoke @Regression (FC-TC-14) Verificar que los botones VER y VOLVER funcionan correctamente de la card Domicilio Principal', async ({ misDireccionesBtnEditarVerVolverGuardar }) => {
+
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
+    })
+    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardVerDomicilioPrincipal()
+    })
+    await test.step('Click en el boton VOLVER', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickVolver()
+    })
+})
+
+test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonNo }) => {
+
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
+    })
+    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
+    })
+    await test.step('Click en el radio button Si de la ventana Vivis en un Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.clickRadioButtonSi()
+    })
+    await test.step('Click en el select Provincia', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.clickSelectProvincia()
+    })
+    await test.step('Seleccionar Provincia', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.seleccionProvincia()
+    })
+    await test.step('Click en el select Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.clickSelectPartido()
+    })
+    await test.step('Seleccionar Partido', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.seleccionPartido()
+    })
+    await test.step('Ingresar el nombre de la Calle', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillNombreCalle()
+    })
+    await test.step('Ingresar el numero de la Calle', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillNumero()
+    })
+    await test.step('Ingrese el numero de Piso', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillPiso()
+    })
+    await test.step('Ingrese el numero de Departamento', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillDepartamento()
+    })
+    await test.step('Ingrese el Codigo Postal', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillCodPostal()
+    })
+    await test.step('Seleccionar Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.seleccionarTipoDomicilio()
+    })
+    await test.step('Ingresar datos en el input Comentario', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.fillComentario()
+    })
+    await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickGuardarCambios()
+    })
+})
+
+test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (SI) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonSi }) => {
+
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
+    })
+    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
     await test.step('Click en el radio button Si de la ventana Vivis en un Barrio Cerrado', async () => {
         await miPerfilEditarMisDireccionesRadioButtonSi.clickRadioButtonSi()
@@ -71,7 +146,7 @@ test('@zxcv @Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal 
         await miPerfilEditarMisDireccionesRadioButtonSi.fillComentario()
     })
     await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.clickGuardarCambios()
+        await misDireccionesBtnEditarVerVolverGuardar.clickGuardarCambios()
     })
 })
 
@@ -89,11 +164,9 @@ test('@zxcv @Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal 
 
 
 
-
-
 test.afterEach(async ({ cerrarSesion }) => {
 
-    await test.step('Click sobre el boton Cerrar Sesion', async () => {
+    await test.step('Click en el boton Cerrar Sesion', async () => {
         await cerrarSesion.clickCerrarSesion()
     })
 })

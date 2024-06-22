@@ -4,8 +4,6 @@ import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLo
 
 export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
 
-    readonly EDITAR: Locator
-    readonly MIS_DIRECCIONES_DOMICILIO: Locator
     readonly RADIOBUTON_SI: Locator
     readonly SELECT_PROVINCIA: Locator
     readonly PROVINCIA: Locator
@@ -16,7 +14,6 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
     readonly SELECT_TIPO_DOMICILIO: Locator
     readonly TIPO_DOMICILIO: Locator
     readonly COMENTARIO: Locator
-    readonly GUARDAR_CAMBIOS: Locator
 
     private env: any
 
@@ -24,35 +21,18 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         super(page, context)
         this.env = loadEnvironmentConfig(environment)
 
-        this.EDITAR = this.page.locator('//a[@href="https://www.micarrefour.com.ar/mi-perfil/mis-direcciones"]')
-        this.MIS_DIRECCIONES_DOMICILIO = this.page.locator("//a[normalize-space()='EDITAR']")
         this.RADIOBUTON_SI = this.page.getByText('Sí')
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'BUENOS AIRES' })
-        // this.SELECT_PARTIDO = this.page.locator("(//input[@class='select-dropdown dropdown-trigger valid'])[1]")
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'MENDOZA' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        // this.PARTIDO = this.page.locator('//*[@id="select-options-c2a99389-3be6-41c3-ac15-b8334dba57033"]')
-        this.PARTIDO = this.page.locator('span').filter({ hasText: '25 DE MAYO' })
+        this.PARTIDO = this.page.locator('span').filter({ hasText: 'GODOY CRUZ' })
         this.NOMBRE_BARRIO = this.page.locator("//input [@id='dDireccionCalle']")
         this.LOTE = this.page.locator("//input [@id='nDepartamento']")
-        // this.SELECT_TIPO_DOMICILIO = this.page.locator('(//input[@class="select-dropdown dropdown-trigger valid"])[1]')
         this.SELECT_TIPO_DOMICILIO = this.page.locator('div:nth-child(9) > .select-wrapper > input')
-        // this.TIPO_DOMICILIO = this.page.locator('//span[normalize-space()="Domicilio Principal"]')
         this.TIPO_DOMICILIO = this.page.locator('span').filter({ hasText: 'Otros' })
         this.COMENTARIO = this.page.locator('//input[@id="dComentario"]')
-        this.GUARDAR_CAMBIOS = this.page.locator('(//button[normalize-space()="Guardar cambios"])[1]')
     }
 
-    async clickEditarMisDirecciones(): Promise<void> {
-        await this.click(this.EDITAR)
-        await this.page.waitForLoadState("domcontentloaded")
-        await this.page.waitForFunction(() => document.readyState === 'complete')
-    }
-    async clickCardEditarDomicilioPrincipal(): Promise<void> {
-        await this.click(this.MIS_DIRECCIONES_DOMICILIO)
-        await this.page.waitForLoadState("domcontentloaded")
-        await this.page.waitForFunction(() => document.readyState === 'complete')
-    }
     async clickRadioButtonSi(): Promise<void> {
         await this.click(this.RADIOBUTON_SI)
         await this.page.waitForLoadState("domcontentloaded")
@@ -86,7 +66,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillLoteUnidadFuncional(): Promise<void> {
-        await this.fill(this.LOTE, '13')
+        await this.fill(this.LOTE, '795')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
@@ -102,19 +82,12 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForTimeout(1000)
     }
     async fillComentario(): Promise<void> {
-        await this.fill(this.COMENTARIO, 'Preuba QA Automatizada')
-        await this.page.waitForLoadState("domcontentloaded")
-        await this.page.waitForFunction(() => document.readyState === 'complete')
-    }
-    async clickGuardarCambios(): Promise<void> {
-        await this.click(this.GUARDAR_CAMBIOS)
+        await this.fill(this.COMENTARIO, 'Prueba QA')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
 
     async navigateToMiPerfilEditarMisDireccionesRadioButtonSi(): Promise<void> {
-        await this.clickEditarMisDirecciones()
-        await this.clickCardEditarDomicilioPrincipal()
         await this.clickRadioButtonSi()
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
@@ -125,31 +98,11 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.clickSelectTipoDomicilio()
         await this.seleccionarTipoDomicilio()
         await this.fillComentario()
-        await this.clickGuardarCambios()
     }
 }
 
-// const provinciaArray = ['CAPITAL FEDERAL', 'CATAMARCA', 'CHACO', 'CHUBUT', 'CORDOBA', 'CORRIENTES', 'ENTRE RIOS', 'FORMOSA','ISLAS MALVINAS', 'JUJUY', 'LA PAMPA', 'LA RIOJA', 'MISIONES', 'NEUQUEN', 'RIO NEGRO', 'SALTA', 'SAN JUAN', 'SAN LUIS', 'SANTA CRUZ', 'SANTA FE', 'SANTIAGO DEL ESTERO', 'TIERRA DEL FUEGO', 'TUCUMAN', 'Provincia', 'MENDOZA']
-//
-//
-// this.PROVINCIA = this.page.locator('span').filter({ hasText: 'BUENOS AIRES' })
-//
-// const input = "(//textarea[@id='vCAPACITACIONDESCRIPCION'])[1]"
-//
-// for (const word of provinciaArray) {
-//     await this.page.waitForSelector(input)
-//     await this.fill(this.BUSCADOR_DESCRIPCION, '')
-//     await this.fill(this.BUSCADOR_DESCRIPCION, word)
-//     await this.page.waitForLoadState("domcontentloaded")
-//     await this.page.waitForFunction(() => document.readyState === 'complete')
-// }
+// const provinciaArray = ['CATAMARCA', 'CHACO', 'CHUBUT', 'CORDOBA', 'CORRIENTES', 'ENTRE RIOS', 'FORMOSA','ISLAS MALVINAS', 'JUJUY', 'LA PAMPA', 'LA RIOJA', 'MISIONES', 'NEUQUEN', 'RIO NEGRO', 'SALTA', 'SAN JUAN', 'SAN LUIS', 'SANTA CRUZ', 'SANTA FE', 'SANTIAGO DEL ESTERO', 'TIERRA DEL FUEGO', 'TUCUMAN', 'Provincia', 'MENDOZA']
 
-
-// Buenos Aires
-// <ul id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b" class="dropdown-content select-dropdown" tabindex="0" style="display: block; width: 269.023px; left: 0px; top: 0px; height: 240px; transform-origin: 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1);"><li class="disabled selected" id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b0" tabindex="0"><span>Partido</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b1" tabindex="0"><span>25 DE MAYO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b2" tabindex="0"><span>9 DE JULIO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b3" tabindex="0"><span>ADOLFO ALSINA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b4" tabindex="0"><span>ADOLFO GONZALES CHAVES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b5" tabindex="0"><span>ALBERTI</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b6" tabindex="0"><span>ALMIRANTE BROWN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b7" tabindex="0"><span>AMEGHINO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b8" tabindex="0"><span>AVELLANEDA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b9" tabindex="0"><span>AYACUCHO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b10" tabindex="0"><span>AZUL</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b11" tabindex="0"><span>BAHÍA BLANCA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b12" tabindex="0"><span>BALCARCE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b13" tabindex="0"><span>BARADERO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b14" tabindex="0"><span>BARTOLOMÉ MITRE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b15" tabindex="0"><span>BENITO JUÁREZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b16" tabindex="0"><span>BERAZATEGUI</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b17" tabindex="0"><span>BERISSO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b18" tabindex="0"><span>BOLÍVAR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b19" tabindex="0"><span>BRAGADO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b20" tabindex="0"><span>BRANDSEN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b21" tabindex="0"><span>CAMPANA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b22" tabindex="0"><span>CAPITÁN SARMIENTO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b23" tabindex="0"><span>CARLOS CASARES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b24" tabindex="0"><span>CARLOS TEJEDOR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b25" tabindex="0"><span>CARMEN DE ARECO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b26" tabindex="0"><span>CASTELLI</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b27" tabindex="0"><span>CAÑUELAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b28" tabindex="0"><span>CHACABUCO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b29" tabindex="0"><span>CHASCOMÚS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b30" tabindex="0"><span>CHIVILCOY</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b31" tabindex="0"><span>COLÓN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b32" tabindex="0"><span>CORONEL DE MARINA LEONARDO ROSALES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b33" tabindex="0"><span>CORONEL DORREGO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b34" tabindex="0"><span>CORONEL PRINGLES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b35" tabindex="0"><span>CORONEL SUÁREZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b36" tabindex="0"><span>DAIREAUX</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b37" tabindex="0"><span>DOLORES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b38" tabindex="0"><span>ENSENADA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b39" tabindex="0"><span>ESCOBAR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b40" tabindex="0"><span>ESTEBAN ECHEVERRÍA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b41" tabindex="0"><span>EXALTACIÓN DE LA CRUZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b42" tabindex="0"><span>EZEIZA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b43" tabindex="0"><span>FLORENCIO VARELA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b44" tabindex="0"><span>GENERAL ALVARADO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b45" tabindex="0"><span>GENERAL ALVEAR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b46" tabindex="0"><span>GENERAL ARENALES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b47" tabindex="0"><span>GENERAL BELGRANO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b48" tabindex="0"><span>GENERAL GUIDO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b49" tabindex="0"><span>GENERAL JUAN MADARIAGA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b50" tabindex="0"><span>GENERAL LA MADRID</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b51" tabindex="0"><span>GENERAL LAS HERAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b52" tabindex="0"><span>GENERAL LAVALLE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b53" tabindex="0"><span>GENERAL PAZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b54" tabindex="0"><span>GENERAL PINTO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b55" tabindex="0"><span>GENERAL PUEYRREDÓN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b56" tabindex="0"><span>GENERAL RODRÍGUEZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b57" tabindex="0"><span>GENERAL SAN MARTÍN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b58" tabindex="0"><span>GENERAL VIAMONTE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b59" tabindex="0"><span>GENERAL VILLEGAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b60" tabindex="0"><span>GUAMINÍ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b61" tabindex="0"><span>HIPÓLITO YRIGOYEN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b62" tabindex="0"><span>HURLINGHAM</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b63" tabindex="0"><span>ITUZAINGÓ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b64" tabindex="0"><span>JOSÉ C. PAZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b65" tabindex="0"><span>JUNÍN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b66" tabindex="0"><span>LA COSTA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b67" tabindex="0"><span>LA MATANZA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b68" tabindex="0"><span>LA PLATA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b69" tabindex="0"><span>LANÚS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b70" tabindex="0"><span>LAPRIDA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b71" tabindex="0"><span>LAS FLORES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b72" tabindex="0"><span>LEANDRO N. ALEM</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b73" tabindex="0"><span>LINCOLN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b74" tabindex="0"><span>LOBERÍA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b75" tabindex="0"><span>LOBOS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b76" tabindex="0"><span>LOMAS DE ZAMORA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b77" tabindex="0"><span>LUJÁN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b78" tabindex="0"><span>MAGDALENA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b79" tabindex="0"><span>MAIPÚ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b80" tabindex="0"><span>MALVINAS ARGENTINAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b81" tabindex="0"><span>MAR CHIQUITA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b82" tabindex="0"><span>MARCOS PAZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b83" tabindex="0"><span>MERCEDES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b84" tabindex="0"><span>MERLO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b85" tabindex="0"><span>MONTE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b86" tabindex="0"><span>MONTE HERMOSO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b87" tabindex="0"><span>MORENO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b88" tabindex="0"><span>MORÓN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b89" tabindex="0"><span>NAVARRO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b90" tabindex="0"><span>NECOCHEA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b91" tabindex="0"><span>OLAVARRÍA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b92" tabindex="0"><span>PATAGONES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b93" tabindex="0"><span>PEHUAJÓ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b94" tabindex="0"><span>PELLEGRINI</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b95" tabindex="0"><span>PERGAMINO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b96" tabindex="0"><span>PILA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b97" tabindex="0"><span>PILAR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b98" tabindex="0"><span>PINAMAR</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b99" tabindex="0"><span>PRESIDENTE PERÓN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b100" tabindex="0"><span>PUNTA INDIO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b101" tabindex="0"><span>PUÁN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b102" tabindex="0"><span>QUILMES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b103" tabindex="0"><span>RAMALLO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b104" tabindex="0"><span>RAUCH</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b105" tabindex="0"><span>RIVADAVIA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b106" tabindex="0"><span>ROJAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b107" tabindex="0"><span>ROQUE PÉREZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b108" tabindex="0"><span>SAAVEDRA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b109" tabindex="0"><span>SALADILLO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b110" tabindex="0"><span>SALLIQUELLÓ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b111" tabindex="0"><span>SALTO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b112" tabindex="0"><span>SAN ANDRÉS DE GILES</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b113" tabindex="0"><span>SAN ANTONIO DE ARECO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b114" tabindex="0"><span>SAN CAYETANO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b115" tabindex="0"><span>SAN FERNANDO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b116" tabindex="0"><span>SAN ISIDRO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b117" tabindex="0"><span>SAN MIGUEL</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b118" tabindex="0"><span>SAN NICOLÁS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b119" tabindex="0"><span>SAN PEDRO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b120" tabindex="0"><span>SAN VICENTE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b121" tabindex="0"><span>SUIPACHA</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b122" tabindex="0"><span>TANDIL</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b123" tabindex="0"><span>TAPALQUÉ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b124" tabindex="0"><span>TIGRE</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b125" tabindex="0"><span>TORDILLO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b126" tabindex="0"><span>TORNQUIST</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b127" tabindex="0"><span>TRENQUE LAUQUEN</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b128" tabindex="0"><span>TRES ARROYOS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b129" tabindex="0"><span>TRES DE FEBRERO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b130" tabindex="0"><span>TRES LOMAS</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b131" tabindex="0"><span>VICENTE LÓPEZ</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b132" tabindex="0"><span>VILLA GESELL</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b133" tabindex="0"><span>VILLARINO</span></li><li id="select-options-4709bbea-339c-6ad3-01ae-1fed60e4f74b134" tabindex="0"><span>ZÁRATE</span></li></ul>
-
-// CAPITAL FEDERAL
-// CAPITAL FEDERAL
 
 // CATAMARCA
 //<ul id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c1942" class="dropdown-content select-dropdown" tabindex="0" style="display: block; width: 269.023px; left: 0px; top: 0px; height: 240px; transform-origin: 0px 0px; opacity: 1; transform: scaleX(1) scaleY(1);"><li class="disabled selected" id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19420" tabindex="0"><span>Partido</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19421" tabindex="0"><span>AMBATO</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19422" tabindex="0"><span>ANCASTI</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19423" tabindex="0"><span>ANDALGALÁ</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19424" tabindex="0"><span>ANTOFAGASTA DE LA SIERRA</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19425" tabindex="0"><span>BELÉN</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19426" tabindex="0"><span>CAPAYÁN</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19427" tabindex="0"><span>CATAMARCA (CAPITAL)</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19428" tabindex="0"><span>EL ALTO</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c19429" tabindex="0"><span>FRAY MAMERTO ESQUIÚ</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194210" tabindex="0"><span>GUASAYÁN</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194211" tabindex="0"><span>LA PAZ</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194212" tabindex="0"><span>PACLIN</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194213" tabindex="0"><span>POMÁN</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194214" tabindex="0"><span>SANTA MARÍA</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194215" tabindex="0"><span>SANTA ROSA</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194216" tabindex="0"><span>TINOGASTA</span></li><li id="select-options-c3d96f8c-91ec-51c2-55c3-206a469c194217" tabindex="0"><span>VALLE VIEJO</span></li></ul>

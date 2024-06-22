@@ -13,6 +13,7 @@ import {
 import {
     MisDireccionesBtnEditarVerVolverGuardar
 } from '../pageObjectModel/MiPerfil/MisDireccionesBtnEditarVerVolverGuardar'
+import { SelectProvCapitalFederalPartidos } from '../pageObjectModel/MiPerfil/SelectProvCapitalFederalPartidos'
 
 
 const environment = process.env.TEST || 'qa'
@@ -26,6 +27,7 @@ const test = baseTest.extend<{
     miPerfilEditarMisDireccionesRadioButtonSi: MiPerfilEditarMisDireccionesRadioButtonSi
     miPerfilEditarMisDireccionesRadioButtonNo: MiPerfilEditarMisDireccionesRadioButtonNo
     selectProvBuenosAiresPartidos: SelectProvBuenosAiresPartidos
+    selectProvCapitalFederalPartidos: SelectProvCapitalFederalPartidos
 
 
 }>({
@@ -38,6 +40,9 @@ const test = baseTest.extend<{
 
     selectProvBuenosAiresPartidos: async ({ page, context }, use) => {
         await use(new SelectProvBuenosAiresPartidos(page, context, environment))
+    },
+    selectProvCapitalFederalPartidos: async ({ page, context }, use) => {
+        await use(new SelectProvCapitalFederalPartidos(page, context, environment))
     },
 
 

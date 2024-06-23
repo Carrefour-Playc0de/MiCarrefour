@@ -2,7 +2,7 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test'
 import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
-export class SelectProvCapitalFederalPartidos extends BasePage {
+export class SelectProvSaltaPartidos extends BasePage {
 
     readonly SELECT_PROVINCIA: Locator
     readonly PROVINCIA: Locator
@@ -16,7 +16,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'CAPITAL FEDERAL' })
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'SALTA' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
         this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
@@ -33,7 +33,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
     }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['CAPITAL FEDERAL']
+        const partidosArray = ['ANTA', 'CACHI', 'CAFAYATE', 'CALDERA', 'CANDELARIA', 'CERRILLOS', 'CHICOANA', 'GENERAL JOSÉ DE SAN MARTÍN', 'GRAL. MARTÍN M. GÜEMES', 'GUACHIPAS', 'IRUYA', 'LA POMA', 'LA VIÑA', 'LOS ANDES', 'METÁN', 'MOLINOS', 'ORÁN', 'RIVADAVIA', 'ROSARIO DE LA FRONTERA', 'ROSARIO DE LERMA', 'SALTA (CAPITAL)', 'SAN CARLOS', 'SANTA VICTORIA']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -49,7 +49,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         }
     }
 
-    async navigateToMiPerfilEditMisDirecProvCapitalFederalPartidos(): Promise<void> {
+    async navigateToMiPerfilEditMisDirecProvSaltaPartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickPartidos()

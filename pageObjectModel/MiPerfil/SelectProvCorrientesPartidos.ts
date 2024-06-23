@@ -2,7 +2,7 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test'
 import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
-export class SelectProvCapitalFederalPartidos extends BasePage {
+export class SelectProvCorrientesPartidos extends BasePage {
 
     readonly SELECT_PROVINCIA: Locator
     readonly PROVINCIA: Locator
@@ -16,7 +16,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'CAPITAL FEDERAL' })
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'CORRIENTES' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
         this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
@@ -33,7 +33,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
     }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['CAPITAL FEDERAL']
+        const partidosArray = ['BELLA VISTA', 'BERÓN DE ASTRADA', 'CONCEPCIÓN', 'CORRIENTES (CAPITAL)', 'CURUZÚ CUATIÁ', 'EMPEDRADO', 'ESQUINA', 'GENERAL ALVEAR', 'GENERAL PAZ', 'GOYA', 'ITATÍ', 'ITUZAINGÓ', 'LAVALLE', 'MBURUCUY', 'MERCEDES', 'MONTE CASEROS', 'PASO DE LOS LIBRES', 'SALADAS', 'SAN COSME', 'SAN LUIS DEL PALMAR', 'SAN MARTÍN', 'SAN MIGUEL', 'SAN ROQUE', 'SANTO TOMÉ', 'SAUCE']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -49,7 +49,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         }
     }
 
-    async navigateToMiPerfilEditMisDirecProvCapitalFederalPartidos(): Promise<void> {
+    async navigateToMiPerfilEditMisDirecProvCorrientesPartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickPartidos()

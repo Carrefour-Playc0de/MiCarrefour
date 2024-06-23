@@ -2,7 +2,7 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test'
 import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
-export class SelectProvCapitalFederalPartidos extends BasePage {
+export class SelectProvSantaFePartidos extends BasePage {
 
     readonly SELECT_PROVINCIA: Locator
     readonly PROVINCIA: Locator
@@ -16,7 +16,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'CAPITAL FEDERAL' })
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'SANTA FE' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
         this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
@@ -33,7 +33,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
     }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['CAPITAL FEDERAL']
+        const partidosArray = ['9 DE JULIO', 'BELGRANO', 'CASEROS', 'CASTELLANOS', 'CONSTITUCIÓN', 'GARAY', 'GENERAL LÓPEZ', 'GENERAL OBLIGADO', 'IRIONDO', 'LAS COLONIAS', 'ROSARIO', 'SAN CRISTÓBAL', 'SAN JAVIER', 'SAN JERÓNIMO', 'SAN JUSTO', 'SAN LORENZO', 'SAN MARTÍN', 'SANTA FE (CAPITAL', 'VERA']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -49,7 +49,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         }
     }
 
-    async navigateToMiPerfilEditMisDirecProvCapitalFederalPartidos(): Promise<void> {
+    async navigateToMiPerfilEditMisDirecProvSantaFePartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickPartidos()

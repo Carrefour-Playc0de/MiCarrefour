@@ -2,7 +2,7 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test'
 import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 
-export class SelectProvCapitalFederalPartidos extends BasePage {
+export class SelectProvLaRiojaPartidos extends BasePage {
 
     readonly SELECT_PROVINCIA: Locator
     readonly PROVINCIA: Locator
@@ -16,7 +16,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         this.env = loadEnvironmentConfig(environment)
 
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'CAPITAL FEDERAL' })
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'LA RIOJA' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
         this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
@@ -33,7 +33,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
     }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['CAPITAL FEDERAL']
+        const partidosArray = ['ARAUCO', 'CASTRO BARROS', 'CHILECITO', 'FAMATINA', 'GENERAL ANGEL V. PESALOZA', 'GENERAL BELGRANO', 'GENERAL JUAN F. QUIROGA', 'GENERAL LAMADRID', 'GENERAL LAVALLE', 'GENERAL OCAMPO', 'GENERAL SAN MARTÍN', 'GENERAL SARMIENTO', 'GOBERNADOR GORDILLO', 'INDEPENDENCIA', 'LA RIOJA (CAPITAL)', 'ROSARIO VERA PEÑALOZA', 'SAN BLAS DE LOS SAUCES', 'SANAGASTA']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -49,7 +49,7 @@ export class SelectProvCapitalFederalPartidos extends BasePage {
         }
     }
 
-    async navigateToMiPerfilEditMisDirecProvCapitalFederalPartidos(): Promise<void> {
+    async navigateToMiPerfilEditMisDirecProvLaRiojaPartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickPartidos()

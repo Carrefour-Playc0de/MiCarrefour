@@ -1,6 +1,6 @@
 import test from '../../config/testManager'
 
-test.beforeEach(async ({ loginPage, miPerfil, misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonSi }) => {
+test.beforeEach(async ({ loginPage, miPerfil, misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonNo }) => {
 
     await test.step(`Navegar en Mi Carrefour`, async () => {
         await loginPage.navigateToLoginPage()
@@ -23,12 +23,12 @@ test.beforeEach(async ({ loginPage, miPerfil, misDireccionesBtnEditarVerVolverGu
     await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
-    await test.step('Click en el radio button SI de la ventana Vivis en un Barrio Cerrado', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.clickRadioButtonSi()
+    await test.step('Click en el radio button NO de la ventana Vivis en un Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.clickRadioButtonNo()
     })
 })
 
-test('@Perfil @Regression (FC-TC-27) Verificar que el selec Provincia BUENOS AIRES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvBuenosAiresPartidos }) => {
+test('@Perfil @Regression (FC-TC-52) Verificar que el selec Provincia BUENOS AIRES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvBuenosAiresPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvBuenosAiresPartidos.clickSelectProvincia()
@@ -40,7 +40,7 @@ test('@Perfil @Regression (FC-TC-27) Verificar que el selec Provincia BUENOS AIR
         await selectProvBuenosAiresPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-28) Verificar que el selec Provincia CAPITAL FEDERAL y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvCapitalFederalPartidos }) => {
+test('@Perfil @Regression (FC-TC-53) Verificar que el selec Provincia CAPITAL FEDERAL y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvCapitalFederalPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvCapitalFederalPartidos.clickSelectProvincia()
@@ -52,7 +52,7 @@ test('@Perfil @Regression (FC-TC-28) Verificar que el selec Provincia CAPITAL FE
         await selectProvCapitalFederalPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-29) Verificar que el selec Provincia CATAMARCA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvCatamarcaPartidos }) => {
+test('@Perfil @Regression (FC-TC-54) Verificar que el selec Provincia CATAMARCA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvCatamarcaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvCatamarcaPartidos.clickSelectProvincia()
@@ -64,7 +64,7 @@ test('@Perfil @Regression (FC-TC-29) Verificar que el selec Provincia CATAMARCA 
         await selectProvCatamarcaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-30) Verificar que el selec Provincia CHACO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvChacoPartidos }) => {
+test('@Perfil @Regression (FC-TC-55) Verificar que el selec Provincia CHACO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvChacoPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvChacoPartidos.clickSelectProvincia()
@@ -76,7 +76,7 @@ test('@Perfil @Regression (FC-TC-30) Verificar que el selec Provincia CHACO y to
         await selectProvChacoPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-31) Verificar que el selec Provincia CHUBUT y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvChubutPartidos }) => {
+test('@Perfil @Regression (FC-TC-56) Verificar que el selec Provincia CHUBUT y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvChubutPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvChubutPartidos.clickSelectProvincia()
@@ -88,7 +88,7 @@ test('@Perfil @Regression (FC-TC-31) Verificar que el selec Provincia CHUBUT y t
         await selectProvChubutPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-32) Verificar que el selec Provincia CORDOBA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvCordobaPartidos }) => {
+test('@Perfil @Regression (FC-TC-57) Verificar que el selec Provincia CORDOBA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvCordobaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvCordobaPartidos.clickSelectProvincia()
@@ -100,7 +100,7 @@ test('@Perfil @Regression (FC-TC-32) Verificar que el selec Provincia CORDOBA y 
         await selectProvCordobaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-33) Verificar que el selec Provincia CORRIENTES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvCorrientesPartidos }) => {
+test('@Perfil @Regression (FC-TC-58) Verificar que el selec Provincia CORRIENTES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvCorrientesPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvCorrientesPartidos.clickSelectProvincia()
@@ -112,7 +112,7 @@ test('@Perfil @Regression (FC-TC-33) Verificar que el selec Provincia CORRIENTES
         await selectProvCorrientesPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-34) Verificar que el selec Provincia ENTRE RIOS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvEntreRiosPartidos }) => {
+test('@Perfil @Regression (FC-TC-59) Verificar que el selec Provincia ENTRE RIOS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvEntreRiosPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvEntreRiosPartidos.clickSelectProvincia()
@@ -124,7 +124,7 @@ test('@Perfil @Regression (FC-TC-34) Verificar que el selec Provincia ENTRE RIOS
         await selectProvEntreRiosPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-35) Verificar que el selec Provincia FORMOSA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvFormosaPartidos }) => {
+test('@Perfil @Regression (FC-TC-60) Verificar que el selec Provincia FORMOSA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvFormosaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvFormosaPartidos.clickSelectProvincia()
@@ -136,7 +136,7 @@ test('@Perfil @Regression (FC-TC-35) Verificar que el selec Provincia FORMOSA y 
         await selectProvFormosaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-36) Verificar que el selec Provincia ISLAS MALVINAS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvIslasMalvinasPartidos }) => {
+test('@Perfil @Regression (FC-TC-61) Verificar que el selec Provincia ISLAS MALVINAS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvIslasMalvinasPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvIslasMalvinasPartidos.clickSelectProvincia()
@@ -147,8 +147,11 @@ test('@Perfil @Regression (FC-TC-36) Verificar que el selec Provincia ISLAS MALV
     await test.step('Click en los Partidos de la Provincia', async () => {
         await selectProvIslasMalvinasPartidos.clickPartidos()
     })
+    await test.step('Click en ISLAS MALVINAS', async () => {
+        await selectProvIslasMalvinasPartidos.seleccionIslasMalvinas()
+    })
 })
-test('@Perfil @Regression (FC-TC-37) Verificar que el selec Provincia JUJUY y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvJujuyPartidos }) => {
+test('@Perfil @Regression (FC-TC-62) Verificar que el selec Provincia JUJUY y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvJujuyPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvJujuyPartidos.clickSelectProvincia()
@@ -160,7 +163,7 @@ test('@Perfil @Regression (FC-TC-37) Verificar que el selec Provincia JUJUY y to
         await selectProvJujuyPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-38) Verificar que el selec Provincia LA PAMPA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvLaPampaPartidos }) => {
+test('@Perfil @Regression (FC-TC-63) Verificar que el selec Provincia LA PAMPA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvLaPampaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvLaPampaPartidos.clickSelectProvincia()
@@ -172,7 +175,7 @@ test('@Perfil @Regression (FC-TC-38) Verificar que el selec Provincia LA PAMPA y
         await selectProvLaPampaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-39) Verificar que el selec Provincia LA RIOJA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvLaRiojaPartidos }) => {
+test('@Perfil @Regression (FC-TC-64) Verificar que el selec Provincia LA RIOJA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvLaRiojaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvLaRiojaPartidos.clickSelectProvincia()
@@ -184,7 +187,7 @@ test('@Perfil @Regression (FC-TC-39) Verificar que el selec Provincia LA RIOJA y
         await selectProvLaRiojaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-40) Verificar que el selec Provincia MENDOZA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvMendozaPartidos }) => {
+test('@Perfil @Regression (FC-TC-65) Verificar que el selec Provincia MENDOZA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvMendozaPartidos }) => {
 
     await test.step('Selecionar otra Provincia', async () => {
         await selectProvMendozaPartidos.clickSelectOtherProvincia()
@@ -196,7 +199,7 @@ test('@Perfil @Regression (FC-TC-40) Verificar que el selec Provincia MENDOZA y 
         await selectProvMendozaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-41) Verificar que el selec Provincia MISIONES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvMisionesPartidos }) => {
+test('@Perfil @Regression (FC-TC-66) Verificar que el selec Provincia MISIONES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvMisionesPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvMisionesPartidos.clickSelectProvincia()
@@ -208,7 +211,7 @@ test('@Perfil @Regression (FC-TC-41) Verificar que el selec Provincia MISIONES y
         await selectProvMisionesPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-42) Verificar que el selec Provincia NEUQUEN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvNeuquenPartidos }) => {
+test('@Perfil @Regression (FC-TC-67) Verificar que el selec Provincia NEUQUEN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvNeuquenPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvNeuquenPartidos.clickSelectProvincia()
@@ -220,7 +223,7 @@ test('@Perfil @Regression (FC-TC-42) Verificar que el selec Provincia NEUQUEN y 
         await selectProvNeuquenPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-43) Verificar que el selec Provincia RIO NEGRO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvRioNegroPartidos }) => {
+test('@Perfil @Regression (FC-TC-68) Verificar que el selec Provincia RIO NEGRO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvRioNegroPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvRioNegroPartidos.clickSelectProvincia()
@@ -232,7 +235,7 @@ test('@Perfil @Regression (FC-TC-43) Verificar que el selec Provincia RIO NEGRO 
         await selectProvRioNegroPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-44) Verificar que el selec Provincia SALTA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSaltaPartidos }) => {
+test('@Perfil @Regression (FC-TC-69) Verificar que el selec Provincia SALTA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSaltaPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSaltaPartidos.clickSelectProvincia()
@@ -244,7 +247,7 @@ test('@Perfil @Regression (FC-TC-44) Verificar que el selec Provincia SALTA y to
         await selectProvSaltaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-45) Verificar que el selec Provincia SAN JUAN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSanJuanPartidos }) => {
+test('@Perfil @Regression (FC-TC-70) Verificar que el selec Provincia SAN JUAN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSanJuanPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSanJuanPartidos.clickSelectProvincia()
@@ -256,7 +259,7 @@ test('@Perfil @Regression (FC-TC-45) Verificar que el selec Provincia SAN JUAN y
         await selectProvSanJuanPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-46) Verificar que el selec Provincia SAN LUIS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSanLuisPartidos }) => {
+test('@Perfil @Regression (FC-TC-71) Verificar que el selec Provincia SAN LUIS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSanLuisPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSanLuisPartidos.clickSelectProvincia()
@@ -268,7 +271,7 @@ test('@Perfil @Regression (FC-TC-46) Verificar que el selec Provincia SAN LUIS y
         await selectProvSanLuisPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-47) Verificar que el selec Provincia SANTA CRUZ y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSantaCruzPartidos }) => {
+test('@Perfil @Regression (FC-TC-72) Verificar que el selec Provincia SANTA CRUZ y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSantaCruzPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSantaCruzPartidos.clickSelectProvincia()
@@ -280,7 +283,7 @@ test('@Perfil @Regression (FC-TC-47) Verificar que el selec Provincia SANTA CRUZ
         await selectProvSantaCruzPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-48) Verificar que el selec Provincia SANTA FE y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSantaFePartidos }) => {
+test('@Perfil @Regression (FC-TC-73) Verificar que el selec Provincia SANTA FE y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSantaFePartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSantaFePartidos.clickSelectProvincia()
@@ -292,7 +295,7 @@ test('@Perfil @Regression (FC-TC-48) Verificar que el selec Provincia SANTA FE y
         await selectProvSantaFePartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-49) Verificar que el selec Provincia SANTIAGO DEL ESTERO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvSantiagoDelEsteroPartidos }) => {
+test('@Perfil @Regression (FC-TC-74) Verificar que el selec Provincia SANTIAGO DEL ESTERO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvSantiagoDelEsteroPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvSantiagoDelEsteroPartidos.clickSelectProvincia()
@@ -304,7 +307,7 @@ test('@Perfil @Regression (FC-TC-49) Verificar que el selec Provincia SANTIAGO D
         await selectProvSantiagoDelEsteroPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-50) Verificar que el selec Provincia TIERRA DEL FUEGO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvTierraDelFuegoPartidos }) => {
+test('@Perfil @Regression (FC-TC-75) Verificar que el selec Provincia TIERRA DEL FUEGO y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvTierraDelFuegoPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvTierraDelFuegoPartidos.clickSelectProvincia()
@@ -316,7 +319,7 @@ test('@Perfil @Regression (FC-TC-50) Verificar que el selec Provincia TIERRA DEL
         await selectProvTierraDelFuegoPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-51) Verificar que el selec Provincia TUCUMAN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvTucumanPartidos }) => {
+test('@Perfil @Regression (FC-TC-76) Verificar que el selec Provincia TUCUMAN y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (NO)', async ({ selectProvTucumanPartidos }) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvTucumanPartidos.clickSelectProvincia()

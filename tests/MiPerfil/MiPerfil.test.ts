@@ -66,8 +66,8 @@ test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Viv
     await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
-    await test.step('Click en el radio button Si de la ventana Vivis en un Barrio Cerrado', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonNo.clickRadioButtonSi()
+    await test.step('Click en el radio button NO de la ventana Vivis en un Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonNo.clickRadioButtonNo()
     })
     await test.step('Click en el select Provincia', async () => {
         await miPerfilEditarMisDireccionesRadioButtonNo.clickSelectProvincia()
@@ -115,7 +115,7 @@ test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Viv
     await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
-    await test.step('Click en el radio button Si de la ventana Vivis en un Barrio Cerrado', async () => {
+    await test.step('Click en el radio button SI de la ventana Vivis en un Barrio Cerrado', async () => {
         await miPerfilEditarMisDireccionesRadioButtonSi.clickRadioButtonSi()
     })
     await test.step('Click en el select Provincia', async () => {

@@ -18,7 +18,6 @@ export class SelectProvRioNegroPartidos extends BasePage {
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'RIO NEGRO' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
 
     async clickSelectProvincia(): Promise<void> {

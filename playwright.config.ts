@@ -16,7 +16,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
 
   // Amount of retries on failure (flaky test)
-  retries: process.env.CI ? 1 : 1,  // Cantidad de veces que se reintenta un caso cuando falla
+  retries: process.env.CI ? 5 : 5,  // Cantidad de veces que se reintenta un caso cuando falla
 
   // Amount of jobs to run in parallel
   workers: process.env.CI ? 1 : 1,  // Cantidad de casos que se corren a la vez

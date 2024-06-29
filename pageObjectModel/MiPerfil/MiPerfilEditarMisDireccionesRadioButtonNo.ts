@@ -37,7 +37,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonNo extends BasePage {
         this.COMENTARIO = this.page.locator('//input[@id="dComentario"]')
     }
 
-    async clickRadioButtonSi(): Promise<void> {
+    async clickRadioButtonNo(): Promise<void> {
         await this.click(this.RADIOBUTON_NO)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
@@ -102,7 +102,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonNo extends BasePage {
     }
 
     async navigateToMiPerfilEditarMisDireccionesRadioButtonNo(): Promise<void> {
-        await this.clickRadioButtonSi()
+        await this.clickRadioButtonNo()
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickSelectPartido()

@@ -8,6 +8,7 @@ export class SelectProvIslasMalvinasPartidos extends BasePage {
     readonly PROVINCIA: Locator
     readonly SELECT_PARTIDO: Locator
     readonly PARTIDO: Locator
+    readonly ISLAS_MALVINAS: Locator
 
     private env: any
 
@@ -18,7 +19,7 @@ export class SelectProvIslasMalvinasPartidos extends BasePage {
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'ISLAS MALVINAS' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
+        this.ISLAS_MALVINAS = this.page.locator('(//span[contains(text(),"ISLAS MALVINAS")])[2]')
     }
 
     async clickSelectProvincia(): Promise<void> {
@@ -32,26 +33,36 @@ export class SelectProvIslasMalvinasPartidos extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async clickPartidos (): Promise<void> {
+        await this.page.waitForTimeout(1000)
+        await this.click(this.SELECT_PARTIDO)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
 
-        const partidosArray = ['ISLAS MALVINAS']
-        let flag = true
-        for (const locality of partidosArray){
-            const input = "div:nth-child(3) > .select-wrapper > input"
-            await this.page.click(input)
-            await this.page.waitForSelector(input)
-            if (flag){
-                await this.page.click(input)
-                flag = false
-            }
-            await this.page.locator('#form-direcciones').getByRole('list').getByText(`${locality}`).click();
-            await this.page.waitForLoadState('domcontentloaded')
-            await this.page.waitForFunction(() => document.readyState === 'complete')
-        }
+        // const partidosArray = ['ISLAS MALVINAS']
+        // let flag = true
+        // for (const locality of partidosArray){
+        //     const input = "div:nth-child(3) > .select-wrapper > input"
+        //     await this.page.click(input)
+        //     await this.page.waitForSelector(input)
+        //     if (flag){
+        //         await this.page.click(input)
+        //         flag = false
+        //     }
+        //     await this.page.locator('#form-direcciones').getByRole('list').getByText(`${locality}`).click();
+        //     await this.page.waitForLoadState('domcontentloaded')
+        //     await this.page.waitForFunction(() => document.readyState === 'complete')
+        // }
+    }
+    async seleccionIslasMalvinas(): Promise<void> {
+        await this.click(this.ISLAS_MALVINAS)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
     }
 
     async navigateToMiPerfilEditMisDirecProvIslasMalvinasPartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
         await this.clickPartidos()
+        await this.seleccionIslasMalvinas()
     }
 }

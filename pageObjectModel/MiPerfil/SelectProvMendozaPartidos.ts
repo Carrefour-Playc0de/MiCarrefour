@@ -20,7 +20,6 @@ export class SelectProvMendozaPartidos extends BasePage {
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'BUENOS AIRES' })
         this.PROVINCIA_MENDOZA = this.page.locator('span').filter({ hasText: 'MENDOZA' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
 
     async clickSelectOtherProvincia(): Promise<void> {

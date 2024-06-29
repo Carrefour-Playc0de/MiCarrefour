@@ -147,6 +147,9 @@ test('@Perfil @Regression (FC-TC-36) Verificar que el selec Provincia ISLAS MALV
     await test.step('Click en los Partidos de la Provincia', async () => {
         await selectProvIslasMalvinasPartidos.clickPartidos()
     })
+    await test.step('Click en ISLAS MALVINAS', async () => {
+        await selectProvIslasMalvinasPartidos.seleccionIslasMalvinas()
+    })
 })
 test('@Perfil @Regression (FC-TC-37) Verificar que el selec Provincia JUJUY y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvJujuyPartidos }) => {
 
@@ -335,9 +338,6 @@ test.afterEach(async ({ misDireccionesBtnEditarVerVolverGuardar }) => {
     await test.step('Click en VOLVER', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickVolver()
     })
-    // await test.step('Click en el boton Cerrar Sesion', async () => {
-    //     await cerrarSesion.clickCerrarSesion()
-    // })
 })
 
 

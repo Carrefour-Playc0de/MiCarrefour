@@ -18,7 +18,6 @@ export class SelectProvTucumanPartidos extends BasePage {
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'TUCUMAN' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator("div:nth-child(3) > .select-wrapper > input")
     }
 
     async clickSelectProvincia(): Promise<void> {
@@ -44,8 +43,6 @@ export class SelectProvTucumanPartidos extends BasePage {
                 flag = false
             }
             await this.page.locator('span').filter({ hasText: `${locality}` }).click()
-            console.log('Se dio Click - ' + locality)
-            await this.page.waitForTimeout(500)
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
         }

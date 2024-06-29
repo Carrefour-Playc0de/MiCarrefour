@@ -33,7 +33,7 @@ export class SelectProvChacoPartidos extends BasePage {
     }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['12 DE OCTUBRE', '1RO. DE MAYO', '2 DE ABRIL', '25 DE MAYO', '9 DE JULIO', 'ALMIRANTE BROWN', 'BERMEJO', 'CHACABUCO', 'COMANDANTE FERNÁNDEZ', 'FRAY JUSTO SANTA MARÍA DE ORO', 'GENERAL BELGRANO', 'GENERAL DONOVAN', 'GENERAL GÜEMES', 'INDEPENDENCIA', 'LIBERTAD', 'LIBERTADOR GENERAL SAN MARTÍN', 'MAIPÚ', 'MAYOR LUIS J. FONTA', "O'HIGGINS", 'PRESIDENTE DE LA PLAZA', 'QUITILIPI', 'SAN FERNANDO', 'SAN LORENZO', 'SARGENTO CABRAL', 'TAPENAGA']
+        const partidosArray = ['12 DE OCTUBRE', '1RO. DE MAYO', '2 DE ABRIL', '25 DE MAYO', '9 DE JULIO', 'ALMIRANTE BROWN', 'BERMEJO', 'CHACABUCO', 'COMANDANTE FERNÁNDEZ', 'FRAY JUSTO SANTA MARÍA DE ORO', 'GENERAL BELGRANO', 'GENERAL DONOVAN', 'GENERAL GÜEMES', 'INDEPENDENCIA', 'LIBERTAD', 'LIBERTADOR GENERAL SAN MARTÍN', 'MAIPÚ', 'MAYOR LUIS J. FONTA', 'PRESIDENTE DE LA PLAZA', 'QUITILIPI', 'SAN FERNANDO', 'SAN LORENZO', 'SARGENTO CABRAL', 'TAPENAGA']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -43,7 +43,7 @@ export class SelectProvChacoPartidos extends BasePage {
                 await this.page.click(input)
                 flag = false
             }
-            await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            await this.page.locator(`(//span[normalize-space()='${locality}'])[1]`).click()
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
         }

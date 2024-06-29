@@ -35,17 +35,24 @@ export class SelectProvFormosaPartidos extends BasePage {
 
         const partidosArray = ['BERMEJO', 'FORMOSA', 'LAISHI', 'MATACOS', 'PATINO', 'PILAGÁS', 'PILCOMAYO', 'PIRANE', 'RAMÓN LISTA']
         let flag = true
+        let cont = 0
         for (const locality of partidosArray){
-            const input = "div:nth-child(3) > .select-wrapper > input"
+            const input = 'div:nth-child(3) > .select-wrapper > input'
             await this.page.click(input)
             await this.page.waitForSelector(input)
             if (flag){
                 await this.page.click(input)
                 flag = false
             }
-            await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            if (cont===1){
+                await this.page.locator('#form-direcciones').getByRole('list').getByText(`${locality}`).click();
+            }else{
+                await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            }
+            cont++
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
+
         }
     }
 

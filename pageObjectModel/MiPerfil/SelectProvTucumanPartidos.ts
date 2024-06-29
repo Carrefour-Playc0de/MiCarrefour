@@ -44,6 +44,8 @@ export class SelectProvTucumanPartidos extends BasePage {
                 flag = false
             }
             await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            console.log('Se dio Click - ' + locality)
+            await this.page.waitForTimeout(500)
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
         }

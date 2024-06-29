@@ -43,7 +43,7 @@ export class SelectProvIslasMalvinasPartidos extends BasePage {
                 await this.page.click(input)
                 flag = false
             }
-            await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            await this.page.locator('#form-direcciones').getByRole('list').getByText(`${locality}`).click();
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
         }

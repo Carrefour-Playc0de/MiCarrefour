@@ -43,7 +43,7 @@ export class SelectProvLaRiojaPartidos extends BasePage {
                 await this.page.click(input)
                 flag = false
             }
-            await this.page.locator('span').filter({ hasText: `${locality}` }).click()
+            await this.page.locator(`(//span[normalize-space()='${locality}'])[1]`).click()
             await this.page.waitForLoadState('domcontentloaded')
             await this.page.waitForFunction(() => document.readyState === 'complete')
         }

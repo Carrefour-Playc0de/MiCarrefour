@@ -1,0 +1,109 @@
+import { Page, BrowserContext, Locator, expect } from '@playwright/test'
+import { BasePage } from '../commonActions'
+import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
+
+export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage {
+
+    readonly AGREGAR_DIRECCION: Locator
+    readonly RADIOBUTON_NO: Locator
+    // readonly SELECT_PROVINCIA: Locator
+    // readonly PROVINCIA: Locator
+    // readonly SELECT_PARTIDO: Locator
+    // readonly PARTIDO: Locator
+    // readonly CALLE: Locator
+    // readonly NUMERO: Locator
+    // readonly PISO: Locator
+    // readonly DEPTO: Locator
+    // readonly COD_POSTAL: Locator
+    // readonly TIPO_DOMICILIO:Locator
+    // readonly COMENTARIO: Locator
+
+    private env: any
+
+    constructor(page: Page, context: BrowserContext, environment: string) {
+        super(page, context)
+        this.env = loadEnvironmentConfig(environment)
+
+        this.AGREGAR_DIRECCION = this.page.locator('(//span[contains(text(),"Agregar dirección")])[1]')
+        // this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
+        // this.PROVINCIA = this.page.locator('span').filter({ hasText: 'BUENOS AIRES' })
+        // this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
+        // this.PARTIDO = this.page.locator('span').filter({ hasText: '25 DE MAYO' })
+        // this.CALLE = this.page.locator("//input[@id='dDireccionCalle']")
+        // this.NUMERO = this.page.locator("//input[@id='nCalle']")
+        // this.PISO = this.page.locator("//input[@id='nPiso']")
+        // this.DEPTO = this.page.locator("//input[@id='nDepartamento']")
+        // this.COD_POSTAL = this.page.locator("//input[@id='dCodigoPostal']")
+        // this.TIPO_DOMICILIO = this.page.locator('span').filter({ hasText: 'Otros' })
+        // this.COMENTARIO = this.page.locator('//input[@id="dComentario"]')
+    }
+
+    async clickCardAgregarDireccion(): Promise<void> {
+        await this.click(this.AGREGAR_DIRECCION)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
+    // async clickSelectProvincia(): Promise<void> {
+    //     await this.click(this.SELECT_PROVINCIA)
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async seleccionProvincia(): Promise<void> {
+    //     await this.click(this.PROVINCIA)
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    //     await this.page.waitForTimeout(1000)
+    // }
+    // async clickSelectPartido(): Promise<void> {
+    //     await this.click(this.SELECT_PARTIDO)
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async seleccionPartido(): Promise<void> {
+    //     await this.click(this.PARTIDO)
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    //     await this.page.waitForTimeout(1000)
+    // }
+    // async fillNombreCalle(): Promise<void> {
+    //     await this.fill(this.CALLE, 'Test QA')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async fillNumero(): Promise<void> {
+    //     await this.fill(this.NUMERO, '123456')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async fillPiso(): Promise<void> {
+    //     await this.fill(this.PISO, '12')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async fillDepartamento(): Promise<void> {
+    //     await this.fill(this.DEPTO, '12')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async fillCodPostal(): Promise<void> {
+    //     await this.fill(this.COD_POSTAL, '5000')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+    // async seleccionarTipoDomicilio(): Promise<void> {
+    //     await this.click(this.TIPO_DOMICILIO)
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    //     await this.page.waitForTimeout(1000)
+    // }
+    // async fillComentario(): Promise<void> {
+    //     await this.fill(this.COMENTARIO, 'Preuba QA Automatizada')
+    //     await this.page.waitForLoadState("domcontentloaded")
+    //     await this.page.waitForFunction(() => document.readyState === 'complete')
+    // }
+
+    async navigateToMiPerfilEditarMisDireccionesAgregarDirecRButtonNo(): Promise<void> {
+        await this.clickCardAgregarDireccion()
+
+    }
+}

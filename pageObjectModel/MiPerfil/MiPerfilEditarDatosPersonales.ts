@@ -23,7 +23,6 @@ export class MiPerfilEditarDatosPersonales extends BasePage {
         await this.click(this.EDITAR)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(3000)
     }
     async fillCelularDatosPersonales(): Promise<void> {
         await this.fill(this.CELULAR, '2613456789')
@@ -34,7 +33,6 @@ export class MiPerfilEditarDatosPersonales extends BasePage {
         await this.click(this.GUARDAR)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(10000)
     }
 
     async navigateToMiPerfilDatosPersonales(): Promise<void> {

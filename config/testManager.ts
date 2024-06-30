@@ -37,6 +37,12 @@ import { SelectProvSantaFePartidos } from '../pageObjectModel/MiPerfil/SelectPro
 import { SelectProvSantiagoDelEsteroPartidos } from '../pageObjectModel/MiPerfil/SelectProvSantiagoDelEsteroPartidos'
 import { SelectProvTierraDelFuegoPartidos } from '../pageObjectModel/MiPerfil/SelectProvTierraDelFuegoPartidos'
 import { SelectProvTucumanPartidos } from '../pageObjectModel/MiPerfil/SelectProvTucumanPartidos'
+import {
+    MiPerfilEditarMisDireccionesResponsable
+} from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesResponsable'
+import {
+    MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
+} from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesAgregarDirecRButtonNo'
 
 
 const environment = process.env.TEST || 'qa'
@@ -74,6 +80,8 @@ const test = baseTest.extend<{
     selectProvSantiagoDelEsteroPartidos: SelectProvSantiagoDelEsteroPartidos
     selectProvTierraDelFuegoPartidos: SelectProvTierraDelFuegoPartidos
     selectProvTucumanPartidos: SelectProvTucumanPartidos
+    miPerfilEditarMisDireccionesResponsable: MiPerfilEditarMisDireccionesResponsable
+    miPerfilEditarMisDireccionesAgregarDirecRButtonNo: MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -82,6 +90,12 @@ const test = baseTest.extend<{
     cerrarSesion: async ({ page, context }, use) => {
         await use(new CerrarSesion(page, context, environment))
     },
+
+    miPerfilEditarMisDireccionesAgregarDirecRButtonNo: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesAgregarDirecRButtonNo(page, context, environment))
+    },
+
+
 
 
 
@@ -183,6 +197,9 @@ const test = baseTest.extend<{
     },
     miPerfilEditarMisDireccionesRadioButtonNo: async ({ page, context }, use) => {
         await use(new MiPerfilEditarMisDireccionesRadioButtonNo(page, context, environment))
+    },
+    miPerfilEditarMisDireccionesResponsable: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesResponsable(page, context, environment))
     },
 
 

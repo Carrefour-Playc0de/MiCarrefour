@@ -9,6 +9,7 @@ export class MisDireccionesBtnEditarVerVolverGuardar extends BasePage {
     readonly VER: Locator
     readonly GUARDAR_CAMBIOS: Locator
     readonly VOLVER: Locator
+    readonly AGREGAR_DIRECCION: Locator
 
     private env: any
 
@@ -21,6 +22,8 @@ export class MisDireccionesBtnEditarVerVolverGuardar extends BasePage {
         this.VER = this.page.locator('//a[normalize-space()="VER"]')
         this.GUARDAR_CAMBIOS = this.page.locator('//button[normalize-space()="Guardar cambios"]')
         this.VOLVER = this.page.locator('//a[normalize-space()="Volver"]')
+        // this.AGREGAR_DIRECCION = this.page.locator('(//span[contains(text(),"Agregar dirección")])[1]')
+        this.AGREGAR_DIRECCION = this.page.getByRole('link', { name: 'Agregar Agregar dirección' }).first()
     }
 
     async clickEditarMisDirecciones(): Promise<void> {
@@ -48,6 +51,12 @@ export class MisDireccionesBtnEditarVerVolverGuardar extends BasePage {
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
+    async clickCardAgregarDireccion(): Promise<void> {
+        await this.click(this.AGREGAR_DIRECCION)
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+        await this.page.waitForTimeout(1500)
+    }
 
     async navigateToMiPerfilEditarMisDireccionesRadioButtonNo(): Promise<void> {
         await this.clickEditarMisDirecciones()
@@ -55,5 +64,6 @@ export class MisDireccionesBtnEditarVerVolverGuardar extends BasePage {
         await this.clickCardVerDomicilioPrincipal()
         await this.clickGuardarCambios()
         await this.clickVolver()
+        await this.clickCardAgregarDireccion()
     }
 }

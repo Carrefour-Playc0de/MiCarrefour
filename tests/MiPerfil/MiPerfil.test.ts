@@ -186,52 +186,52 @@ test('@Perfil @Regression (FC-TC-78) Verificar que el boton << Volver funciona c
 
 
 
-test('@asd @Perfil @Regression (TC-7) Verificar que se puede agregar una direccion desde Agregar Direccion', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo }) => {
+test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo }) => {
 
     await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
     })
-    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
-        await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
-    })
     await test.step('Click en la card Agregar Direccion', async () => {
-        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.clickCardAgregarDireccion()
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardAgregarDireccion()
     })
-    // await test.step('Click en el select Provincia', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.clickSelectProvincia()
-    // })
-    // await test.step('Seleccionar Provincia', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.seleccionProvincia()
-    // })
-    // await test.step('Click en el select Partido', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.clickSelectPartido()
-    // })
-    // await test.step('Seleccionar Partido', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.seleccionPartido()
-    // })
-    // await test.step('Ingresar el nombre de la Calle', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillNombreCalle()
-    // })
-    // await test.step('Ingresar el numero de la Calle', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillNumero()
-    // })
-    // await test.step('Ingrese el numero de Piso', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillPiso()
-    // })
-    // await test.step('Ingrese el numero de Departamento', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillDepartamento()
-    // })
-    // await test.step('Ingrese el Codigo Postal', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillCodPostal()
-    // })
-    // await test.step('Seleccionar Tipo de domicilio', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.seleccionarTipoDomicilio()
-    // })
-    // await test.step('Ingresar datos en el input Comentario', async () => {
-    //     await miPerfilEditarMisDireccionesRadioButtonNo.fillComentario()
-    // })
-    await test.step('Click en el boton GUARDAR CAMBIOS', async () => {
-        await misDireccionesBtnEditarVerVolverGuardar.clickGuardarCambios()
+    await test.step('Click en el select Provincia', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.clickSelectProvincia()
+    })
+    await test.step('Seleccionar Provincia', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionProvincia()
+    })
+    await test.step('Click en el select Partido', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.clickSelectPartido()
+    })
+    await test.step('Seleccionar Partido', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionPartido()
+    })
+    await test.step('Ingresar el nombre de la Calle', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillNombreCalle()
+    })
+    await test.step('Ingresar el numero de la Calle', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillNumero()
+    })
+    await test.step('Ingrese el numero de Piso', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillPiso()
+    })
+    await test.step('Ingrese el numero de Departamento', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillDepartamento()
+    })
+    await test.step('Ingrese el Codigo Postal', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillCodPostal()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionarTipoDomicilio()
+    })
+    await test.step('Seleccionar Tipo de domicilio', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionarTipoDomicilio()
+    })
+    await test.step('Ingresar datos en el input Comentario', async () => {
+        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillComentario()
+    })
+    await test.step('Click en el boton VOLVER', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickVolver()
     })
 })
 

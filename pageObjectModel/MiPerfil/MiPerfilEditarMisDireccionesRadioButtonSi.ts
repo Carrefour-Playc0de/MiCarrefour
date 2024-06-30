@@ -47,7 +47,6 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.click(this.PROVINCIA)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(1000)
     }
     async clickSelectPartido(): Promise<void> {
         await this.click(this.SELECT_PARTIDO)
@@ -58,7 +57,6 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.click(this.PARTIDO)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(1000)
     }
     async fillNombreBarrioCerrado(): Promise<void> {
         await this.fill(this.NOMBRE_BARRIO, 'Alto Las Tortugas')

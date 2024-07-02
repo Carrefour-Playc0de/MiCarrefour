@@ -14,8 +14,6 @@ export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage 
     readonly PISO: Locator
     readonly DEPTO: Locator
     readonly COD_POSTAL: Locator
-    readonly TIPO_DOMICILIO:Locator
-    readonly SELECT_TIPO_DOMICILIO:Locator
     readonly COMENTARIO: Locator
 
     private env: any
@@ -34,12 +32,8 @@ export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage 
         this.PISO = this.page.locator("//input[@id='nPiso']")
         this.DEPTO = this.page.locator("//input[@id='nDepartamento']")
         this.COD_POSTAL = this.page.locator("//input[@id='dCodigoPostal']")
-        this.TIPO_DOMICILIO = this.page.locator('div:nth-child(9) > .select-wrapper > input')
-        // this.TIPO_DOMICILIO = this.page.locator('//input[@class="select-dropdown dropdown-trigger valid"]')
-        this.SELECT_TIPO_DOMICILIO = this.page.locator('span').filter({ hasText: 'Otros' })
         this.COMENTARIO = this.page.locator('//input[@id="dComentario"]')
     }
-
 
     async clickRadioButtonNo(): Promise<void> {
         await this.click(this.RADIOBUTON_NO)
@@ -91,20 +85,6 @@ export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage 
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
-    async clickTipoDomicilio(): Promise<void> {
-        await this.page.waitForTimeout(1000)
-        await this.click(this.TIPO_DOMICILIO)
-        await this.page.waitForTimeout(1000)
-        await this.page.waitForLoadState("domcontentloaded")
-        await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(1000)
-    }
-    async seleccionarTipoDomicilio(): Promise<void> {
-        await this.click(this.SELECT_TIPO_DOMICILIO)
-        await this.page.waitForLoadState("domcontentloaded")
-        await this.page.waitForFunction(() => document.readyState === 'complete')
-        await this.page.waitForTimeout(1000)
-    }
     async fillComentario(): Promise<void> {
         await this.fill(this.COMENTARIO, 'Preuba QA Automatizada')
         await this.page.waitForLoadState("domcontentloaded")
@@ -122,8 +102,6 @@ export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage 
         await this.fillPiso()
         await this.fillDepartamento()
         await this.fillCodPostal()
-        await this.clickTipoDomicilio()
-        await this.seleccionarTipoDomicilio()
         await this.fillComentario()
 
     }

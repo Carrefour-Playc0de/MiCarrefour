@@ -186,7 +186,7 @@ test('@Perfil @Regression (FC-TC-78) Verificar que el boton << Volver funciona c
 
 
 
-test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo }) => {
+test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo, misDireccionesSelectTipoDomicilio }) => {
 
     await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
@@ -222,10 +222,10 @@ test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en 
         await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillCodPostal()
     })
     await test.step('Click en el select Tipo de domicilio', async () => {
-        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionarTipoDomicilio()
+        await misDireccionesSelectTipoDomicilio.clickTipoDomicilio()
     })
     await test.step('Seleccionar Tipo de domicilio', async () => {
-        await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.seleccionarTipoDomicilio()
+        await misDireccionesSelectTipoDomicilio.seleccionarTipoDomicilio()
     })
     await test.step('Ingresar datos en el input Comentario', async () => {
         await miPerfilEditarMisDireccionesAgregarDirecRButtonNo.fillComentario()

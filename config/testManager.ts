@@ -43,6 +43,7 @@ import {
 import {
     MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
 } from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesAgregarDirecRButtonNo'
+import { MisDireccionesSelectTipoDomicilio } from '../pageObjectModel/MiPerfil/MisDireccionesSelectTipoDomicilio'
 
 
 const environment = process.env.TEST || 'qa'
@@ -82,6 +83,7 @@ const test = baseTest.extend<{
     selectProvTucumanPartidos: SelectProvTucumanPartidos
     miPerfilEditarMisDireccionesResponsable: MiPerfilEditarMisDireccionesResponsable
     miPerfilEditarMisDireccionesAgregarDirecRButtonNo: MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
+    misDireccionesSelectTipoDomicilio: MisDireccionesSelectTipoDomicilio
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -93,6 +95,9 @@ const test = baseTest.extend<{
 
     miPerfilEditarMisDireccionesAgregarDirecRButtonNo: async ({ page, context }, use) => {
         await use(new MiPerfilEditarMisDireccionesAgregarDirecRButtonNo(page, context, environment))
+    },
+    misDireccionesSelectTipoDomicilio: async ({ page, context }, use) => {
+        await use(new MisDireccionesSelectTipoDomicilio(page, context, environment))
     },
 
 

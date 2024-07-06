@@ -8,6 +8,7 @@ export class SelectProvEntreRiosPartidos extends BasePage {
     readonly PROVINCIA: Locator
     readonly SELECT_PARTIDO: Locator
     readonly PARTIDO: Locator
+    readonly CALLE: Locator
 
     private env: any
 
@@ -18,6 +19,7 @@ export class SelectProvEntreRiosPartidos extends BasePage {
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'ENTRE RIOS' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
+        this.CALLE = this.page.locator("//input[@id='dDireccionCalle']")
     }
 
     async clickSelectProvincia(): Promise<void> {
@@ -30,9 +32,14 @@ export class SelectProvEntreRiosPartidos extends BasePage {
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
+    async fillNombreCalle(): Promise<void> {
+        await this.fill(this.CALLE, '25 de Mayo')
+        await this.page.waitForLoadState("domcontentloaded")
+        await this.page.waitForFunction(() => document.readyState === 'complete')
+    }
     async clickPartidos (): Promise<void> {
 
-        const partidosArray = ['COLÓN', 'CONCORDIA', 'DIAMANTE', 'FEDERACIÓN', 'FEDERAL', 'FELICIANO', 'GUALEGUAY', 'GUALEGUAYCHÚ', 'ISLAS DEL IBICUY', 'LA PAZ', 'NOGOYÁ', 'PARANÁ', 'SAN SALVADOR', 'TALA', 'URUGUAY', 'VICTORIA', 'VILLAGUAY']
+        const partidosArray = ['COLÓN', 'CONCORDIA', 'DIAMANTE', 'FEDERACIÓN', 'FEDERAL', 'FELICIANO', 'GUALEGUAY', 'GUALEGUAYCHÚ', 'ISLAS DEL IBICUY', 'LA PAZ', 'NOGOYÁ', 'PARANÁ', 'SAN SALVADOR', 'TALA', 'VICTORIA', 'VILLAGUAY', 'URUGUAY']
         let flag = true
         for (const locality of partidosArray){
             const input = "div:nth-child(3) > .select-wrapper > input"
@@ -51,6 +58,7 @@ export class SelectProvEntreRiosPartidos extends BasePage {
     async navigateToMiPerfilEditMisDirecProvEntreRiosPartidos(): Promise<void> {
         await this.clickSelectProvincia()
         await this.seleccionProvincia()
+        await this.fillNombreCalle()
         await this.clickPartidos()
     }
 }

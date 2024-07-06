@@ -44,6 +44,7 @@ import {
     MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
 } from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesAgregarDirecRButtonNo'
 import { MisDireccionesSelectTipoDomicilio } from '../pageObjectModel/MiPerfil/MisDireccionesSelectTipoDomicilio'
+import { InicioBotonSalir } from '../pageObjectModel/Inicio/InicioBotonSalir'
 
 
 const environment = process.env.TEST || 'qa'
@@ -84,6 +85,7 @@ const test = baseTest.extend<{
     miPerfilEditarMisDireccionesResponsable: MiPerfilEditarMisDireccionesResponsable
     miPerfilEditarMisDireccionesAgregarDirecRButtonNo: MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
     misDireccionesSelectTipoDomicilio: MisDireccionesSelectTipoDomicilio
+    inicioBotonSalir: InicioBotonSalir
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -93,19 +95,39 @@ const test = baseTest.extend<{
         await use(new CerrarSesion(page, context, environment))
     },
 
+
+    inicioBotonSalir: async ({ page, context }, use) => {
+        await use(new InicioBotonSalir(page, context, environment))
+    },
+
+
+
+
+
     miPerfilEditarMisDireccionesAgregarDirecRButtonNo: async ({ page, context }, use) => {
         await use(new MiPerfilEditarMisDireccionesAgregarDirecRButtonNo(page, context, environment))
     },
-    misDireccionesSelectTipoDomicilio: async ({ page, context }, use) => {
-        await use(new MisDireccionesSelectTipoDomicilio(page, context, environment))
+
+    // MI PERFIL
+    miPerfil: async ({ page, context }, use) => {
+        await use(new MiPerfil(page, context, environment))
     },
-
-
-
-
-
-
-
+    misDireccionesBtnEditarVerVolverGuardar: async ({ page, context }, use) => {
+        await use(new MisDireccionesBtnEditarVerVolverGuardar(page, context, environment))
+    },
+    miPerfilEditarDatosPersonales: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarDatosPersonales(page, context, environment))
+    },
+    miPerfilEditarMisDireccionesRadioButtonSi: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesRadioButtonSi(page, context, environment))
+    },
+    miPerfilEditarMisDireccionesRadioButtonNo: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesRadioButtonNo(page, context, environment))
+    },
+    miPerfilEditarMisDireccionesResponsable: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesResponsable(page, context, environment))
+    },
+    // Select Provincias y sus Departamentos
     selectProvBuenosAiresPartidos: async ({ page, context }, use) => {
         await use(new SelectProvBuenosAiresPartidos(page, context, environment))
     },
@@ -181,30 +203,8 @@ const test = baseTest.extend<{
     selectProvTucumanPartidos: async ({ page, context }, use) => {
         await use(new SelectProvTucumanPartidos(page, context, environment))
     },
-
-
-
-
-
-
-    // MI PERFIL
-    miPerfil: async ({ page, context }, use) => {
-        await use(new MiPerfil(page, context, environment))
-    },
-    misDireccionesBtnEditarVerVolverGuardar: async ({ page, context }, use) => {
-        await use(new MisDireccionesBtnEditarVerVolverGuardar(page, context, environment))
-    },
-    miPerfilEditarDatosPersonales: async ({ page, context }, use) => {
-        await use(new MiPerfilEditarDatosPersonales(page, context, environment))
-    },
-    miPerfilEditarMisDireccionesRadioButtonSi: async ({ page, context }, use) => {
-        await use(new MiPerfilEditarMisDireccionesRadioButtonSi(page, context, environment))
-    },
-    miPerfilEditarMisDireccionesRadioButtonNo: async ({ page, context }, use) => {
-        await use(new MiPerfilEditarMisDireccionesRadioButtonNo(page, context, environment))
-    },
-    miPerfilEditarMisDireccionesResponsable: async ({ page, context }, use) => {
-        await use(new MiPerfilEditarMisDireccionesResponsable(page, context, environment))
+    misDireccionesSelectTipoDomicilio: async ({ page, context }, use) => {
+        await use(new MisDireccionesSelectTipoDomicilio(page, context, environment))
     },
 
 

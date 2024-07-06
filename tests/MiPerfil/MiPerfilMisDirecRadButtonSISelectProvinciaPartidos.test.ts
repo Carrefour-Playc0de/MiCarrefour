@@ -112,7 +112,7 @@ test('@Perfil @Regression (FC-TC-33) Verificar que el selec Provincia CORRIENTES
         await selectProvCorrientesPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-34) Verificar que el selec Provincia ENTRE RIOS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvEntreRiosPartidos }) => {
+test('@Perfil @Regression (FC-TC-34) Verificar que el selec Provincia ENTRE RIOS y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvEntreRiosPartidos, misDireccionesBtnEditarVerVolverGuardar}) => {
 
     await test.step('Click en el select Provincia', async () => {
         await selectProvEntreRiosPartidos.clickSelectProvincia()
@@ -122,6 +122,12 @@ test('@Perfil @Regression (FC-TC-34) Verificar que el selec Provincia ENTRE RIOS
     })
     await test.step('Click en los Partidos de la Provincia', async () => {
         await selectProvEntreRiosPartidos.clickPartidos()
+    })
+    await test.step('Ingresar nombre de la calle', async () => {
+        await selectProvEntreRiosPartidos.fillNombreCalle()
+    })
+    await test.step('Click en boton Guardar Cambios', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickGuardarCambios()
     })
 })
 test('@Perfil @Regression (FC-TC-35) Verificar que el selec Provincia FORMOSA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvFormosaPartidos }) => {
@@ -187,16 +193,22 @@ test('@Perfil @Regression (FC-TC-39) Verificar que el selec Provincia LA RIOJA y
         await selectProvLaRiojaPartidos.clickPartidos()
     })
 })
-test('@Perfil @Regression (FC-TC-40) Verificar que el selec Provincia MENDOZA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvMendozaPartidos }) => {
+test('@Perfil @Regression (FC-TC-40) Verificar que el selec Provincia MENDOZA y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvMendozaPartidos, misDireccionesBtnEditarVerVolverGuardar }) => {
 
     await test.step('Selecionar otra Provincia', async () => {
-        await selectProvMendozaPartidos.clickSelectOtherProvincia()
+        await selectProvMendozaPartidos.clickSelectProvincia()
     })
     await test.step('Seleccionar MENDOZA', async () => {
-        await selectProvMendozaPartidos.seleccionProvinciaMendoza()
+        await selectProvMendozaPartidos.seleccionProvincia()
     })
     await test.step('Click en los Partidos de la Provincia', async () => {
         await selectProvMendozaPartidos.clickPartidos()
+    })
+    await test.step('Ingresar nombre de la calle', async () => {
+        await selectProvMendozaPartidos.fillNombreCalle()
+    })
+    await test.step('Click en boton Guardar Cambios', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickGuardarCambios()
     })
 })
 test('@Perfil @Regression (FC-TC-41) Verificar que el selec Provincia MISIONES y todos sus Partidos funcionan correctamente en Vivis en Barrio Cerrado (SI)', async ({ selectProvMisionesPartidos }) => {

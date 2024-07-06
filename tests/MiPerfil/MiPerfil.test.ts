@@ -58,12 +58,12 @@ test('@Smoke @Regression (FC-TC-14) Verificar que los botones VER y VOLVER funci
     })
 })
 
-test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (SI) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonSi }) => {
+test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (SI) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonSi, misDireccionesSelectTipoDomicilio }) => {
 
-    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+    await test.step('Click en el boton EDITAR en Mis Direcciones', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
     })
-    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
     await test.step('Click en el radio button SI de la ventana Vivis en un Barrio Cerrado', async () => {
@@ -88,10 +88,13 @@ test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Viv
         await miPerfilEditarMisDireccionesRadioButtonSi.fillLoteUnidadFuncional()
     })
     await test.step('Click en el select Tipo de domicilio', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.clickSelectTipoDomicilio()
+        await misDireccionesSelectTipoDomicilio.clickTipoDomicilio()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickSelectTipoDomicilio()
     })
     await test.step('Seleccionar Tipo de domicilio', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonSi.seleccionarTipoDomicilio()
+        await misDireccionesSelectTipoDomicilio.seleccionarTipoDomicilio()
     })
     await test.step('Ingresar datos en el input Comentario', async () => {
         await miPerfilEditarMisDireccionesRadioButtonSi.fillComentario()
@@ -101,12 +104,12 @@ test('@Perfil @Regression (FC-TC-11) Verificar que en Domicilio Principal en Viv
     })
 })
 
-test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonNo }) => {
+test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonNo, misDireccionesSelectTipoDomicilio }) => {
 
-    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+    await test.step('Click en el boton EDITAR en Mis Direcciones', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
     })
-    await test.step('Click en el boton VER de la card Domicilio Principal', async () => {
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
     })
     await test.step('Click en el radio button NO de la ventana Vivis en un Barrio Cerrado', async () => {
@@ -139,8 +142,14 @@ test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Viv
     await test.step('Ingrese el Codigo Postal', async () => {
         await miPerfilEditarMisDireccionesRadioButtonNo.fillCodPostal()
     })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickTipoDomicilio()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickSelectTipoDomicilio()
+    })
     await test.step('Seleccionar Tipo de domicilio', async () => {
-        await miPerfilEditarMisDireccionesRadioButtonNo.seleccionarTipoDomicilio()
+        await misDireccionesSelectTipoDomicilio.seleccionarTipoDomicilio()
     })
     await test.step('Ingresar datos en el input Comentario', async () => {
         await miPerfilEditarMisDireccionesRadioButtonNo.fillComentario()
@@ -152,7 +161,7 @@ test('@Perfil @Regression (FC-TC-26) Verificar que en Domicilio Principal en Viv
 
 test('@Perfil @Regression (FC-TC-77) Verificar que el formulario Responsanble se puede cargar los datos correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesResponsable }) => {
 
-    await test.step('Click en el boton EDITAR de la card Mis Direcciones', async () => {
+    await test.step('Click en el boton EDITAR en Mis Direcciones', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
     })
     await test.step('Click en el boton AGREGAR', async () => {
@@ -179,14 +188,7 @@ test('@Perfil @Regression (FC-TC-78) Verificar que el boton << Volver funciona c
     })
 })
 
-
-
-
-
-
-
-
-test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo, misDireccionesSelectTipoDomicilio }) => {
+test('@Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en Vivis en Barrio Cerrado (NO) los datos se guardan correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesAgregarDirecRButtonNo, misDireccionesSelectTipoDomicilio }) => {
 
     await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
         await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
@@ -224,6 +226,9 @@ test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en 
     await test.step('Click en el select Tipo de domicilio', async () => {
         await misDireccionesSelectTipoDomicilio.clickTipoDomicilio()
     })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickSelectTipoDomicilio()
+    })
     await test.step('Seleccionar Tipo de domicilio', async () => {
         await misDireccionesSelectTipoDomicilio.seleccionarTipoDomicilio()
     })
@@ -235,6 +240,30 @@ test('@asd @Perfil @Regression (FC-TC-79) Verificar que en Agregar Direccion en 
     })
 })
 
+test('@Perfil @Regression (FC-TC-80) Verificar que el select Tipo de Domicilio funciona correctamente', async ({ misDireccionesBtnEditarVerVolverGuardar, miPerfilEditarMisDireccionesRadioButtonSi, misDireccionesSelectTipoDomicilio }) => {
+
+    await test.step('Click en el boton EDITAR en Mis Direcciones', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickEditarMisDirecciones()
+    })
+    await test.step('Click en el boton EDITAR de la card Domicilio Principal', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickCardEditarDomicilioPrincipal()
+    })
+    await test.step('Click en el radio button SI de la ventana Vivis en un Barrio Cerrado', async () => {
+        await miPerfilEditarMisDireccionesRadioButtonSi.clickRadioButtonSi()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickTipoDomicilio()
+    })
+    await test.step('Click en el select Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.clickSelectTipoDomicilio()
+    })
+    await test.step('Seleccionar Tipo de domicilio', async () => {
+        await misDireccionesSelectTipoDomicilio.seleccionarTipoDomicilio()
+    })
+    await test.step('Click en el boton VOLVER', async () => {
+        await misDireccionesBtnEditarVerVolverGuardar.clickVolver()
+    })
+})
 
 
 

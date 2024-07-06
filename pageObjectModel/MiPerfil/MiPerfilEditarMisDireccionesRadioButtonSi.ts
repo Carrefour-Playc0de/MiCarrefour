@@ -23,9 +23,9 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
 
         this.RADIOBUTON_SI = this.page.getByText('Sí')
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
-        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'MENDOZA' })
+        this.PROVINCIA = this.page.locator('span').filter({ hasText: 'ENTRE RIOS' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator('span').filter({ hasText: 'GODOY CRUZ' })
+        this.PARTIDO = this.page.locator('span').filter({ hasText: 'URUGUAY' })
         this.NOMBRE_BARRIO = this.page.locator("//input [@id='dDireccionCalle']")
         this.LOTE = this.page.locator("//input [@id='nDepartamento']")
         this.SELECT_TIPO_DOMICILIO = this.page.locator('div:nth-child(9) > .select-wrapper > input')
@@ -59,12 +59,12 @@ export class MiPerfilEditarMisDireccionesRadioButtonSi extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillNombreBarrioCerrado(): Promise<void> {
-        await this.fill(this.NOMBRE_BARRIO, 'Alto Las Tortugas')
+        await this.fill(this.NOMBRE_BARRIO, '25 de Mayo')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillLoteUnidadFuncional(): Promise<void> {
-        await this.fill(this.LOTE, '795')
+        await this.fill(this.LOTE, '10')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }

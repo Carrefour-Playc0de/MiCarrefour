@@ -27,7 +27,7 @@ export class MiPerfilEditarMisDireccionesRadioButtonNo extends BasePage {
         this.SELECT_PROVINCIA = this.page.locator('.select-dropdown').first()
         this.PROVINCIA = this.page.locator('span').filter({ hasText: 'BUENOS AIRES' })
         this.SELECT_PARTIDO = this.page.locator('div:nth-child(3) > .select-wrapper > input')
-        this.PARTIDO = this.page.locator('span').filter({ hasText: '25 DE MAYO' })
+        this.PARTIDO = this.page.locator('span').filter({ hasText: 'CORONEL DORREGO' })
         this.CALLE = this.page.locator("//input[@id='dDireccionCalle']")
         this.NUMERO = this.page.locator("//input[@id='nCalle']")
         this.PISO = this.page.locator("//input[@id='nPiso']")
@@ -63,12 +63,12 @@ export class MiPerfilEditarMisDireccionesRadioButtonNo extends BasePage {
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillNombreCalle(): Promise<void> {
-        await this.fill(this.CALLE, 'Test QA')
+        await this.fill(this.CALLE, '25 de Mayo')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillNumero(): Promise<void> {
-        await this.fill(this.NUMERO, '123456')
+        await this.fill(this.NUMERO, '123')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }

@@ -61,7 +61,7 @@ export class MiPerfilEditarMisDireccionesAgregarDirecRButtonNo extends BasePage 
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }
     async fillNombreCalle(): Promise<void> {
-        await this.fill(this.CALLE, 'Test QA')
+        await this.fill(this.CALLE, '25 de Mayo')
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
     }

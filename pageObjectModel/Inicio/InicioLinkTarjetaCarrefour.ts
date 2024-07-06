@@ -3,9 +3,9 @@ import { BasePage } from '../commonActions'
 import { loadEnvironmentConfig, loadTestDataConfig } from '../../config/configLoader'
 import { runInThisContext } from 'node:vm'
 
-export class InicioBotonSalir extends BasePage {
+export class InicioLinkTarjetaCarrefour extends BasePage {
 
-    readonly SALIR: Locator
+    readonly LINK: Locator
 
     private env: any
 
@@ -13,17 +13,17 @@ export class InicioBotonSalir extends BasePage {
         super(page, context)
         this.env = loadEnvironmentConfig(environment)
 
-        this.SALIR = this.page.locator('//a[normalize-space()="salir"]')
+        this.LINK = this.page.locator('//a[normalize-space()="Tarjeta Carrefour"]')
     }
 
-    async clickBotonSalir(): Promise<void> {
-        await this.click(this.SALIR)
+    async clickLinkTarjetaCarrefour(): Promise<void> {
+        await this.click(this.LINK)
         await this.page.waitForLoadState("domcontentloaded")
         await this.page.waitForFunction(() => document.readyState === 'complete')
 
     }
 
-    async navigateToInicioBotonSalir(): Promise<void> {
-        await this.clickBotonSalir()
+    async navigateToInicioLinkTarjetaCarrefour(): Promise<void> {
+        await this.clickLinkTarjetaCarrefour()
     }
 }

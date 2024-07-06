@@ -45,6 +45,16 @@ import {
 } from '../pageObjectModel/MiPerfil/MiPerfilEditarMisDireccionesAgregarDirecRButtonNo'
 import { MisDireccionesSelectTipoDomicilio } from '../pageObjectModel/MiPerfil/MisDireccionesSelectTipoDomicilio'
 import { InicioBotonSalir } from '../pageObjectModel/Inicio/InicioBotonSalir'
+import { InicioSlideDerechoIzquierdo } from '../pageObjectModel/Inicio/InicioSlideDerechoIzquierdo'
+import { InicioLinkTarjetaCarrefour } from '../pageObjectModel/Inicio/InicioLinkTarjetaCarrefour'
+import { InicioLinkPromociones } from '../pageObjectModel/Inicio/InicioLinkPromociones'
+import { InicioLoginCarrefourComAr } from '../pageObjectModel/Inicio/InicioLoginCarrefourComAr'
+import { InicioLinkPanelCarrefour } from '../pageObjectModel/Inicio/InicioLinkPanelCarrefour'
+import { InicioLinkContacto } from '../pageObjectModel/Inicio/InicioLinkContacto'
+import { InicioLinkPreguntasFrecuentes } from '../pageObjectModel/Inicio/InicioLinkPreguntasFrecuentes'
+import {
+    MiPerfilActualizarContrasenia
+} from '../pageObjectModel/MiPerfil/ActualizarContrasenia/MiPerfilActualizarContrasenia'
 
 
 const environment = process.env.TEST || 'qa'
@@ -86,6 +96,14 @@ const test = baseTest.extend<{
     miPerfilEditarMisDireccionesAgregarDirecRButtonNo: MiPerfilEditarMisDireccionesAgregarDirecRButtonNo
     misDireccionesSelectTipoDomicilio: MisDireccionesSelectTipoDomicilio
     inicioBotonSalir: InicioBotonSalir
+    inicioSlideDerechoIzquierdo: InicioSlideDerechoIzquierdo
+    inicioLinkTarjetaCarrefour: InicioLinkTarjetaCarrefour
+    inicioLinkPromociones: InicioLinkPromociones
+    inicioLoginCarrefourComAr: InicioLoginCarrefourComAr
+    inicioLinkPanelCarrefour: InicioLinkPanelCarrefour
+    inicioLinkContacto: InicioLinkContacto
+    inicioLinkPreguntasFrecuentes: InicioLinkPreguntasFrecuentes
+    miPerfilActualizarContrasenia: MiPerfilActualizarContrasenia
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -96,9 +114,13 @@ const test = baseTest.extend<{
     },
 
 
-    inicioBotonSalir: async ({ page, context }, use) => {
-        await use(new InicioBotonSalir(page, context, environment))
+    miPerfilActualizarContrasenia: async ({ page, context }, use) => {
+        await use(new MiPerfilActualizarContrasenia(page, context, environment))
     },
+
+
+
+
 
 
 
@@ -206,7 +228,31 @@ const test = baseTest.extend<{
     misDireccionesSelectTipoDomicilio: async ({ page, context }, use) => {
         await use(new MisDireccionesSelectTipoDomicilio(page, context, environment))
     },
-
+    // Sección Inicio
+    inicioBotonSalir: async ({ page, context }, use) => {
+        await use(new InicioBotonSalir(page, context, environment))
+    },
+    inicioSlideDerechoIzquierdo: async ({ page, context }, use) => {
+        await use(new InicioSlideDerechoIzquierdo(page, context, environment))
+    },
+    inicioLinkTarjetaCarrefour: async ({ page, context }, use) => {
+        await use(new InicioLinkTarjetaCarrefour(page, context, environment))
+    },
+    inicioLinkPromociones: async ({ page, context }, use) => {
+        await use(new InicioLinkPromociones(page, context, environment))
+    },
+    inicioLoginCarrefourComAr: async ({ page, context }, use) => {
+        await use(new InicioLoginCarrefourComAr(page, context, environment))
+    },
+    inicioLinkPanelCarrefour: async ({ page, context }, use) => {
+        await use(new InicioLinkPanelCarrefour(page, context, environment))
+    },
+    inicioLinkContacto: async ({ page, context }, use) => {
+        await use(new InicioLinkContacto(page, context, environment))
+    },
+    inicioLinkPreguntasFrecuentes: async ({ page, context }, use) => {
+        await use(new InicioLinkPreguntasFrecuentes(page, context, environment))
+    },
 
 })
 

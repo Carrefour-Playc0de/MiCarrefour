@@ -31,7 +31,7 @@ export class MisDireccionesSelectTipoDomicilio extends BasePage {
     }
     async seleccionarTipoDomicilio (): Promise<void> {
 
-        const addressArray = ['Otros', 'Trabajo', 'Domicilio Principal']
+        const addressArray = ['Trabajo', 'Domicilio Principal', 'Otros']
         for (const typeOfAddress of addressArray){
             const input = "div:nth-child(9) > .select-wrapper > input"
             await this.page.click(input)

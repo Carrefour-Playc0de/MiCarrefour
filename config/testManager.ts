@@ -53,8 +53,14 @@ import { InicioLinkPanelCarrefour } from '../pageObjectModel/Inicio/InicioLinkPa
 import { InicioLinkContacto } from '../pageObjectModel/Inicio/InicioLinkContacto'
 import { InicioLinkPreguntasFrecuentes } from '../pageObjectModel/Inicio/InicioLinkPreguntasFrecuentes'
 import {
-    MiPerfilActualizarContrasenia
-} from '../pageObjectModel/MiPerfil/ActualizarContrasenia/MiPerfilActualizarContrasenia'
+    MiPerfilContraseniaCamposContrasenias
+} from '../pageObjectModel/MiPerfil/Contrasenia/MiPerfilContraseniaCamposContrasenias'
+import {
+    MiPerfilContraseniaCaracteresInvalidos
+} from '../pageObjectModel/MiPerfil/Contrasenia/MiPerfilContraseniaCaracteresInvalidos'
+import {
+    MiPerfilContraseniaNewPassNoCoinciden
+} from '../pageObjectModel/MiPerfil/Contrasenia/MiPerfilContraseniaNewPassNoCoinciden'
 
 
 const environment = process.env.TEST || 'qa'
@@ -103,7 +109,9 @@ const test = baseTest.extend<{
     inicioLinkPanelCarrefour: InicioLinkPanelCarrefour
     inicioLinkContacto: InicioLinkContacto
     inicioLinkPreguntasFrecuentes: InicioLinkPreguntasFrecuentes
-    miPerfilActualizarContrasenia: MiPerfilActualizarContrasenia
+    miPerfilContraseniaCamposContrasenias: MiPerfilContraseniaCamposContrasenias
+    miPerfilContraseniaCaracteresInvalidos: MiPerfilContraseniaCaracteresInvalidos
+    miPerfilContraseniaNewPassNoCoinciden: MiPerfilContraseniaNewPassNoCoinciden
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -114,8 +122,14 @@ const test = baseTest.extend<{
     },
 
 
-    miPerfilActualizarContrasenia: async ({ page, context }, use) => {
-        await use(new MiPerfilActualizarContrasenia(page, context, environment))
+    miPerfilContraseniaCamposContrasenias: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaCamposContrasenias(page, context, environment))
+    },
+    miPerfilContraseniaCaracteresInvalidos: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaCaracteresInvalidos(page, context, environment))
+    },
+    miPerfilContraseniaNewPassNoCoinciden: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaNewPassNoCoinciden(page, context, environment))
     },
 
 

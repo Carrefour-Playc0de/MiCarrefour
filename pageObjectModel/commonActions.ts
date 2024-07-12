@@ -1,4 +1,4 @@
-import { Page, Locator, BrowserContext } from '@playwright/test'
+import { Page, Locator, BrowserContext, expect } from '@playwright/test'
 import logger from '../src/core/logger'
 
 export class BasePage {
@@ -90,7 +90,22 @@ export class BasePage {
         }
     }
 
+    protected async toBeVisible(locator: Locator, delayMilliseconds?: number): Promise<void> {
+        try {
+            await expect(locator).toBeVisible()
+            if (delayMilliseconds !== undefined) {
+                await this.page.waitForTimeout(delayMilliseconds)
+            }
+        } catch (error) {
+            logger.error(`Error occurred while filling element with value ${locator}: ${error}`)
+        }
+    }
+
     public async closeContext(): Promise<void> {
         await this.context.close()
     }
+
+
+
+
 }

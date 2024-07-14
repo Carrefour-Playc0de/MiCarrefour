@@ -61,6 +61,11 @@ import {
 import {
     MiPerfilContraseniaNewPassNoCoinciden
 } from '../pageObjectModel/MiPerfil/Contrasenia/MiPerfilContraseniaNewPassNoCoinciden'
+import { MiPerfilDatosSeguridad } from '../pageObjectModel/MiPerfil/DatosSeguridad/MiPerfilDatosSeguridad'
+import { MiPerfil_Intereses } from '../pageObjectModel/MiPerfil/Intereses/MiPerfil_Intereses'
+import { MiPerfilActualizarTuEmail } from '../pageObjectModel/MiPerfil/ActualizarTuEmail/MiPerfilActualizarTuEmail'
+import { MiHogarAdicionalesDelGrupo } from '../pageObjectModel/MiHogar/MiHogarAdicionalesDelGrupo'
+import { MiHogar } from '../pageObjectModel/MiHogar/MiHogar'
 
 
 const environment = process.env.TEST || 'qa'
@@ -112,6 +117,11 @@ const test = baseTest.extend<{
     miPerfilContraseniaCamposContrasenias: MiPerfilContraseniaCamposContrasenias
     miPerfilContraseniaCaracteresInvalidos: MiPerfilContraseniaCaracteresInvalidos
     miPerfilContraseniaNewPassNoCoinciden: MiPerfilContraseniaNewPassNoCoinciden
+    miPerfilDatosSeguridad: MiPerfilDatosSeguridad
+    miPerfil_Intereses: MiPerfil_Intereses
+    miPerfilActualizarTuEmail: MiPerfilActualizarTuEmail
+    miHogar: MiHogar
+    miHogarAdicionalesDelGrupo: MiHogarAdicionalesDelGrupo
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -120,29 +130,15 @@ const test = baseTest.extend<{
     cerrarSesion: async ({ page, context }, use) => {
         await use(new CerrarSesion(page, context, environment))
     },
-
-
-    miPerfilContraseniaCamposContrasenias: async ({ page, context }, use) => {
-        await use(new MiPerfilContraseniaCamposContrasenias(page, context, environment))
+    // MI HOGAR
+    miHogar: async ({ page, context }, use) => {
+        await use(new MiHogar(page, context, environment))
     },
-    miPerfilContraseniaCaracteresInvalidos: async ({ page, context }, use) => {
-        await use(new MiPerfilContraseniaCaracteresInvalidos(page, context, environment))
-    },
-    miPerfilContraseniaNewPassNoCoinciden: async ({ page, context }, use) => {
-        await use(new MiPerfilContraseniaNewPassNoCoinciden(page, context, environment))
+    miHogarAdicionalesDelGrupo: async ({ page, context }, use) => {
+        await use(new MiHogarAdicionalesDelGrupo(page, context, environment))
     },
 
 
-
-
-
-
-
-
-
-    miPerfilEditarMisDireccionesAgregarDirecRButtonNo: async ({ page, context }, use) => {
-        await use(new MiPerfilEditarMisDireccionesAgregarDirecRButtonNo(page, context, environment))
-    },
 
     // MI PERFIL
     miPerfil: async ({ page, context }, use) => {
@@ -241,6 +237,27 @@ const test = baseTest.extend<{
     },
     misDireccionesSelectTipoDomicilio: async ({ page, context }, use) => {
         await use(new MisDireccionesSelectTipoDomicilio(page, context, environment))
+    },
+    miPerfilContraseniaCamposContrasenias: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaCamposContrasenias(page, context, environment))
+    },
+    miPerfilContraseniaCaracteresInvalidos: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaCaracteresInvalidos(page, context, environment))
+    },
+    miPerfilContraseniaNewPassNoCoinciden: async ({ page, context }, use) => {
+        await use(new MiPerfilContraseniaNewPassNoCoinciden(page, context, environment))
+    },
+    miPerfilDatosSeguridad: async ({ page, context }, use) => {
+        await use(new MiPerfilDatosSeguridad(page, context, environment))
+    },
+    miPerfil_Intereses: async ({ page, context }, use) => {
+        await use(new MiPerfil_Intereses(page, context, environment))
+    },
+    miPerfilActualizarTuEmail: async ({ page, context }, use) => {
+        await use(new MiPerfilActualizarTuEmail(page, context, environment))
+    },
+    miPerfilEditarMisDireccionesAgregarDirecRButtonNo: async ({ page, context }, use) => {
+        await use(new MiPerfilEditarMisDireccionesAgregarDirecRButtonNo(page, context, environment))
     },
     // Sección Inicio
     inicioBotonSalir: async ({ page, context }, use) => {

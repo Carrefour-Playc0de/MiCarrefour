@@ -81,11 +81,12 @@ export default defineConfig({
   ],
 
   // In case you need to run your local env before the tests run
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command: 'npm run start',
+    // url: 'http://127.0.0.1:3000',
+    // reuseExistingServer: !process.env.CI,
+    port: 3000,
+  },
 
 });
 

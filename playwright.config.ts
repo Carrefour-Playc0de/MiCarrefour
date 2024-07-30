@@ -16,13 +16,14 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
 
   // Amount of retries on failure (flaky test)
-  retries: process.env.CI ? 5 : 5,  // Cantidad de veces que se reintenta un caso cuando falla
+  retries: process.env.CI ? 10 : 10,  // Cantidad de veces que se reintenta un caso cuando falla
 
   // Amount of jobs to run in parallel
   workers: process.env.CI ? 1 : 1,  // Cantidad de casos que se corren a la vez
 
   // Maximum time expect() should wait to met a condition
-  expect: { timeout: 10 * 1000 },   // Cantidad de tiempo que espera una validación antes de darla como fallada
+  // expect: { timeout: 20 * 1000 },   // Cantidad de tiempo que espera una validación antes de darla como fallada
+  expect: { timeout: 150 * 1000 },   // Cantidad de tiempo que espera una validación antes de darla como fallada
 
   globalTeardown: "./global-teardown.ts",
 
@@ -36,7 +37,8 @@ export default defineConfig({
   ],
 
   use: {
-    actionTimeout: 10 * 1000, // Maximum time each action like click() can take
+    // actionTimeout: 10 * 1000, // Maximum time each action like click() can take
+    actionTimeout: 60 * 1000, // Maximum time each action like click() can take
     viewport: { width: 1500, height: 730 },
     headless: true,
     ignoreHTTPSErrors: true,

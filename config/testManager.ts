@@ -66,6 +66,22 @@ import { MiPerfil_Intereses } from '../pageObjectModel/MiPerfil/Intereses/MiPerf
 import { MiPerfilActualizarTuEmail } from '../pageObjectModel/MiPerfil/ActualizarTuEmail/MiPerfilActualizarTuEmail'
 import { MiHogarAdicionalesDelGrupo } from '../pageObjectModel/MiHogar/MiHogarAdicionalesDelGrupo'
 import { MiHogar } from '../pageObjectModel/MiHogar/MiHogar'
+import { MisNotificaciones } from '../pageObjectModel/MisNotificaciones/MisNotificaciones'
+import { MisConsumos } from '../pageObjectModel/MisConsumos/MisConsumos'
+import { MisCupones } from '../pageObjectModel/MisCupones/MisCupones'
+import { MisCuponesComprarTickets } from '../pageObjectModel/MisCupones/MisCuponesComprarTickets'
+import { MisCuponesBotonTutorial } from '../pageObjectModel/MisCupones/MisCuponesBotonTutorial'
+import { MisCuponesBotonVerLegales } from '../pageObjectModel/MisCupones/MisCuponesBotonVerLegales'
+import { CompraTuTicketCompra } from '../pageObjectModel/CompraTuTicketCompra/CompraTuTicketCompra'
+import {
+    CompraTuTicketCompraBotonIrInicio
+} from '../pageObjectModel/CompraTuTicketCompra/CompraTuTicketCompraBotonIrInicio'
+import {
+    CompraTuTicketCompraBotonTutorial
+} from '../pageObjectModel/CompraTuTicketCompra/CompraTuTicketCompraBotonTutorial'
+import {
+    CompraTuTicketCompraBotonVerLegales
+} from '../pageObjectModel/CompraTuTicketCompra/CompraTuTicketCompraBotonVerLegales'
 
 
 const environment = process.env.TEST || 'qa'
@@ -122,6 +138,16 @@ const test = baseTest.extend<{
     miPerfilActualizarTuEmail: MiPerfilActualizarTuEmail
     miHogar: MiHogar
     miHogarAdicionalesDelGrupo: MiHogarAdicionalesDelGrupo
+    misNotificaciones: MisNotificaciones
+    misConsumos: MisConsumos
+    misCupones: MisCupones
+    misCuponesComprarTickets: MisCuponesComprarTickets
+    misCuponesBotonTutorial: MisCuponesBotonTutorial
+    misCuponesBotonVerLegales: MisCuponesBotonVerLegales
+    compraTuTicketCompra: CompraTuTicketCompra
+    compraTuTicketCompraBotonIrInicio: CompraTuTicketCompraBotonIrInicio
+    compraTuTicketCompraBotonTutorial: CompraTuTicketCompraBotonTutorial
+    compraTuTicketCompraBotonVerLegales: CompraTuTicketCompraBotonVerLegales
 
 }>({
     loginPage: async ({ page, context }, use) => {
@@ -130,6 +156,12 @@ const test = baseTest.extend<{
     cerrarSesion: async ({ page, context }, use) => {
         await use(new CerrarSesion(page, context, environment))
     },
+
+
+
+
+
+
     // MI HOGAR
     miHogar: async ({ page, context }, use) => {
         await use(new MiHogar(page, context, environment))
@@ -137,9 +169,6 @@ const test = baseTest.extend<{
     miHogarAdicionalesDelGrupo: async ({ page, context }, use) => {
         await use(new MiHogarAdicionalesDelGrupo(page, context, environment))
     },
-
-
-
     // MI PERFIL
     miPerfil: async ({ page, context }, use) => {
         await use(new MiPerfil(page, context, environment))
@@ -283,6 +312,40 @@ const test = baseTest.extend<{
     },
     inicioLinkPreguntasFrecuentes: async ({ page, context }, use) => {
         await use(new InicioLinkPreguntasFrecuentes(page, context, environment))
+    },
+    // MIS NOTIFICACIONES
+    misNotificaciones: async ({ page, context }, use) => {
+        await use(new MisNotificaciones(page, context, environment))
+    },
+    // MIS CUNSUMOS
+    misConsumos: async ({ page, context }, use) => {
+        await use(new MisConsumos(page, context, environment))
+    },
+    // MIS CUPONES
+    misCupones: async ({ page, context }, use) => {
+        await use(new MisCupones(page, context, environment))
+    },
+    misCuponesComprarTickets: async ({ page, context }, use) => {
+        await use(new MisCuponesComprarTickets(page, context, environment))
+    },
+    misCuponesBotonTutorial: async ({ page, context }, use) => {
+        await use(new MisCuponesBotonTutorial(page, context, environment))
+    },
+    misCuponesBotonVerLegales: async ({ page, context }, use) => {
+        await use(new MisCuponesBotonVerLegales(page, context, environment))
+    },
+    // COMPRA TU TICKET DE COMPRA
+    compraTuTicketCompra: async ({ page, context }, use) => {
+        await use(new CompraTuTicketCompra(page, context, environment))
+    },
+    compraTuTicketCompraBotonIrInicio: async ({ page, context }, use) => {
+        await use(new CompraTuTicketCompraBotonIrInicio(page, context, environment))
+    },
+    compraTuTicketCompraBotonTutorial: async ({ page, context }, use) => {
+        await use(new CompraTuTicketCompraBotonTutorial(page, context, environment))
+    },
+    compraTuTicketCompraBotonVerLegales: async ({ page, context }, use) => {
+        await use(new CompraTuTicketCompraBotonVerLegales(page, context, environment))
     },
 
 })
